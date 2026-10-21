@@ -2731,7 +2731,7 @@ function alifboBosqich(b){
   alifboDarsKo();
 }
 /* ── Alifbo talaffuz mashqi: ovozni tanish va baholash (Levenshtein masofasi) ── */
-const ALF_TAL_CHEGARA=70, ALF_TAL_MAX_URINISH=3;
+const ALF_TAL_CHEGARA=60, ALF_TAL_MAX_URINISH=2;
 let ALF_TAL={kalit:'',holat:'',foiz:null,eshitildi:'',urinish:0};
 function alifboLev(a,b){
   const m=a.length,n=b.length; if(!m) return n; if(!n) return m;
@@ -2739,10 +2739,18 @@ function alifboLev(a,b){
   for(let i=1;i<=m;i++){ const cur=[i]; for(let j=1;j<=n;j++){ cur[j]=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1)); } prev=cur; }
   return prev[n];
 }
-function alifboTalBall(eshitildi,hedef){
-  const h=sozlarTozala(hedef).join(' '), a=sozlarTozala(eshitildi).join(' ');
-  const mx=Math.max(h.length,a.length,1);
-  return Math.max(0,Math.round((1-alifboLev(h,a)/mx)*100));
+function alifboTalBall(eshitildilar,hedef){
+  const list=Array.isArray(eshitildilar)?eshitildilar:[eshitildilar];
+  const h=sozlarTozala(hedef).join(' ');
+  let eng=0;
+  list.forEach(t=>{
+    const a=sozlarTozala(t||'').join(' ');
+    if(!a) return;
+    const mx=Math.max(h.length,a.length,1);
+    const b=Math.max(0,Math.round((1-alifboLev(h,a)/mx)*100));
+    if(b>eng) eng=b;
+  });
+  return eng;
 }
 function alifboTalQoll(){ return !!(window.SpeechRecognition||window.webkitSpeechRecognition); }
 function alifboTalHolat(kalit){ if(ALF_TAL.kalit!==kalit) ALF_TAL={kalit,holat:'',foiz:null,eshitildi:'',urinish:0}; return ALF_TAL; }
@@ -2751,9 +2759,12 @@ function alifboTalHTML(w){
   let xabar;
   if(!qoll) xabar="🎧 Bu brauzerda ovozni tanish yo'q. O'zingiz aytib, \"✅ Aytdim\" ni bosing.";
   else if(T.holat==='tinglanyapti') xabar="🎙 Tinglanyapti... so'zni ayting";
-  else if(T.holat==='xato') xabar="⚠️ Ovoz tanilmadi. Qayta urinib ko'ring.";
-  else if(T.foiz!==null) xabar=(T.foiz>=ALF_TAL_CHEGARA?'✅':'❌')+' Siz: "'+akEsc(T.eshitildi)+'" — '+T.foiz+'% mos'+(T.foiz>=ALF_TAL_CHEGARA?'':'. Yana urinib ko\'ring.');
-  else xabar="🎤 Tugmani bosib, so'zni ayting. "+ALF_TAL_CHEGARA+"% dan o'tiladi.";
+  else if(T.holat==='xato') xabar="🎤 Ovoz eshitilmadi. Yaqinroq turib, aniqroq ayting.";
+  else if(T.foiz!==null){
+    const o=T.foiz>=ALF_TAL_CHEGARA;
+    xabar=(o?'🌟 Zo\'r!':'👍 Yaxshi urinish!')+' Siz: "'+akEsc(T.eshitildi)+'" — '+T.foiz+'%'+(o?'':'. Yana bir marta urinib ko\'ring yoki davom eting.');
+  }
+  else xabar="🎤 Tugmani bosib, so'zni ayting. Xato qilsangiz ham xavotir olmang, yana urinish bor.";
   const tugma=qoll?'<button class="test-variant" style="width:auto;padding:10px 16px;" onclick="alifboTalMikBoshla(\''+w+'\')">'+(T.holat==='tinglanyapti'?'🎙 Tinglanyapti…':'🎤 Ayting')+'</button>':'';
   return '<div class="alifbo-izoh" style="text-align:center;">'+xabar+'</div><div class="qator" style="justify-content:center;margin-top:8px;">'+tugma+'</div>';
 }
@@ -2764,23 +2775,23 @@ function alifboTalYangila(w){
 function alifboTalTugmalar(w){
   const b=document.getElementById('alf-aytdim'); if(!b) return;
   const T=alifboTalHolat(w);
-  const ok=!alifboTalQoll() || (T.foiz!==null && T.foiz>=ALF_TAL_CHEGARA) || T.urinish>=ALF_TAL_MAX_URINISH;
-  b.disabled=!ok; b.style.opacity=ok?'1':'.45';
-  b.title=ok?'':"Avval "+ALF_TAL_CHEGARA+"% dan yuqori natija oling yoki "+ALF_TAL_MAX_URINISH+" marta urinib ko'ring";
+  b.disabled=false; b.style.opacity='1'; b.title='';
 }
 function alifboTalMikBoshla(w){
   const R=window.SpeechRecognition||window.webkitSpeechRecognition;
   const T=alifboTalHolat(w);
   if(!R||T.holat==='tinglanyapti') return;
   let r; try{ r=new R(); }catch(e){ T.holat='xato'; alifboTalYangila(w); return; }
-  r.lang='en-US'; r.interimResults=false; r.maxAlternatives=1;
+  r.lang='en-US'; r.interimResults=false; r.maxAlternatives=5;
   let natija=false;
   T.holat='tinglanyapti'; alifboTalYangila(w);
   r.onresult=e=>{
     natija=true;
-    const m=e.results&&e.results[0]&&e.results[0][0];
-    const t=(m&&m.transcript)||'';
-    T.eshitildi=t; T.foiz=alifboTalBall(t,w); T.urinish++; T.holat='';
+    const alt=[];
+    const res=e.results&&e.results[0];
+    if(res){ for(let k=0;k<res.length;k++){ if(res[k]&&res[k].transcript) alt.push(res[k].transcript); } }
+    let eng=-1; alt.forEach(t=>{ const b=alifboTalBall([t],w); if(b>eng){ eng=b; T.eshitildi=t; } });
+    T.foiz=Math.max(0,eng); T.urinish++; T.holat='';
     alifboTalYangila(w);
   };
   r.onerror=()=>{ if(!natija){ T.holat='xato'; alifboTalYangila(w); } };
