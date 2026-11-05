@@ -1284,24 +1284,463 @@ select option {
   position: relative;
 }
 
+
+/* ==========================================================================
+   TOPIC VOCABULARY, IELTS/CEFR READING & LISTENING LAB STYLES
+   ========================================================================== */
+.tfng-qator {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+.tfng-btn {
+  flex: 1;
+  min-width: 90px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.75);
+  color: #cbd5e1;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: center;
+}
+.tfng-btn:hover:not(:disabled) {
+  border-color: #38bdf8;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+.tfng-btn.tanlangan-true {
+  background: rgba(16, 185, 129, 0.22) !important;
+  border-color: #10b981 !important;
+  color: #34d399 !important;
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.3);
+}
+.tfng-btn.tanlangan-false {
+  background: rgba(244, 63, 94, 0.22) !important;
+  border-color: #f43f5e !important;
+  color: #fda4af !important;
+  box-shadow: 0 0 16px rgba(244, 63, 94, 0.3);
+}
+.tfng-btn.tanlangan-ng {
+  background: rgba(245, 158, 11, 0.22) !important;
+  border-color: #f59e0b !important;
+  color: #fbbf24 !important;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.3);
+}
+
+.heading-box {
+  background: rgba(9, 13, 24, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin: 12px 0;
+}
+.paragraf-badge {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 6px;
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  font-family: 'Space Grotesk', monospace;
+  font-weight: 800;
+  font-size: 12px;
+  margin-right: 6px;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+/* Listening Audio Lab Styles */
+.list-player-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(23, 37, 84, 0.55));
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 20px;
+  padding: 22px;
+  margin-bottom: 20px;
+  box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.55);
+}
+.list-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+}
+.list-play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 24px !important;
+  border-radius: 999px !important;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  border: none !important;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4) !important;
+  transition: all 0.18s ease;
+}
+.list-play-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+.list-play-btn.playing {
+  background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%) !important;
+  box-shadow: 0 6px 20px rgba(244, 63, 94, 0.45) !important;
+}
+.list-speed-pills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(9, 13, 24, 0.85);
+  padding: 4px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+.list-speed-pill {
+  padding: 4px 10px;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.list-speed-pill.faol {
+  background: #3b82f6;
+  color: #ffffff;
+}
+.list-dialog-box {
+  background: rgba(9, 13, 24, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.list-line {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.list-line.spk-1 {
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 3px solid #3b82f6;
+  color: #e2e8f0;
+}
+.list-line.spk-2 {
+  background: rgba(16, 185, 129, 0.1);
+  border-left: 3px solid #10b981;
+  color: #f1f5f9;
+}
+.list-note-card {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px dashed rgba(56, 189, 248, 0.35);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 12px 0;
+}
+.list-input {
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: #090d18;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: #f8fafc;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  outline: none;
+  width: 100%;
+  max-width: 240px;
+}
+.list-input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+
+/* ==========================================================================
+   REYTING (LEADERBOARD) & IELTS MASTER HUB STYLES
+   ========================================================================== */
+.liga-karta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  margin-bottom: 14px;
+}
+.liga-belgi {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.liga-olmos { background: rgba(56, 189, 248, 0.18); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; }
+.liga-oltin { background: rgba(245, 158, 11, 0.18); border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24; }
+.liga-kumush { background: rgba(203, 213, 225, 0.18); border: 1px solid rgba(203, 213, 225, 0.4); color: #e2e8f0; }
+.liga-bronza { background: rgba(217, 119, 6, 0.18); border: 1px solid rgba(217, 119, 6, 0.4); color: #d97706; }
+
+.reyting-qator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  margin-bottom: 8px;
+  transition: all 0.18s ease;
+}
+.reyting-qator:hover {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(56, 189, 248, 0.35);
+  transform: translateX(3px);
+}
+.reyting-qator.mening-ornim {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.25), rgba(79, 70, 229, 0.25));
+  border: 1px solid #3b82f6;
+  box-shadow: 0 4px 20px -4px rgba(59, 130, 246, 0.35);
+}
+.reyting-raqam {
+  width: 32px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: #94a3b8;
+}
+.reyting-raqam.oltin { color: #fbbf24; font-size: 20px; }
+.reyting-raqam.kumush { color: #e2e8f0; font-size: 18px; }
+.reyting-raqam.bronza { color: #d97706; font-size: 18px; }
+
+/* IELTS Master Hub Styles */
+.ielts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 18px 0;
+}
+.ielts-karta {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(11, 16, 30, 0.9));
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 18px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+.ielts-karta:hover {
+  border-color: #38bdf8;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.5);
+}
+.ielts-band-box {
+  background: rgba(9, 13, 24, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+  margin: 14px 0;
+}
+.ielts-band-raqam {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  color: #38bdf8;
+  line-height: 1;
+}
+
+
+/* ==========================================================================
+   OXFORD & BRITISH ACADEMIC PALETTE: ROYAL NAVY BLUE, CRISP WHITE & CRIMSON RED
+   ========================================================================== */
+:root {
+  --asosiy: #070d1e;
+  --asosiy2: #0d1730;
+  --karta: rgba(13, 23, 48, 0.88);
+  --kart-gradient: linear-gradient(145deg, rgba(16, 29, 60, 0.94), rgba(10, 18, 40, 0.94));
+  --chegara: rgba(59, 130, 246, 0.22);
+  --ko-k: #2563eb;
+  --ko-k2: #1d4ed8;
+  --osmon: #38bdf8;
+  --oq: #ffffff;
+  --kulrang: #94a3b8;
+  --yashil: #10b981;
+  --qizil: #dc2626;
+  --qizil-ochiq: #ef4444;
+  --qizil-fon: rgba(220, 38, 38, 0.15);
+  --sariq: #fbbf24;
+  --radius: 16px;
+  --bg-card: rgba(13, 23, 48, 0.88);
+  --bg-elevated: #111e3d;
+  --border: rgba(59, 130, 246, 0.22);
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  --emerald: #10b981;
+  --amber: #fbbf24;
+  --rose: #dc2626;
+}
+
+body {
+  background: radial-gradient(circle at 10% 0%, rgba(37, 99, 235, 0.16), transparent 45%),
+              radial-gradient(circle at 90% 10%, rgba(220, 38, 38, 0.12), transparent 45%),
+              #070d1e !important;
+  color: #ffffff !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Oxford British Crimson & Royal Blue Accents */
+.nav-logo {
+  background: linear-gradient(135deg, #1d4ed8 0%, #dc2626 100%) !important;
+  box-shadow: 0 4px 18px rgba(220, 38, 38, 0.35) !important;
+}
+.modul-tugma.faol {
+  background: linear-gradient(135deg, #1d4ed8 0%, #dc2626 100%) !important;
+  border-color: rgba(239, 68, 68, 0.5) !important;
+  box-shadow: 0 8px 22px -4px rgba(220, 38, 38, 0.45) !important;
+}
+.tq-chip-red {
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 99px;
+  background: rgba(220, 38, 38, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  font-weight: 700;
+}
+.test-keyingi, .yuborish-tugma {
+  background: linear-gradient(135deg, #2563eb 0%, #dc2626 100%) !important;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.35) !important;
+}
+
+/* Kunlik Dars Pipeline Styling */
+.kunlik-hero {
+  background: linear-gradient(135deg, rgba(16, 29, 60, 0.95), rgba(29, 78, 216, 0.25), rgba(220, 38, 38, 0.15)) !important;
+  border: 1px solid rgba(59, 130, 246, 0.35) !important;
+  border-radius: 20px !important;
+  padding: 24px !important;
+  margin-bottom: 20px !important;
+  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.55);
+}
+.kunlik-qadam-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin: 18px 0;
+}
+.kunlik-qadam-karta {
+  background: rgba(13, 23, 48, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+}
+.kunlik-qadam-karta:hover {
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.4);
+}
+.kunlik-qadam-karta.bajarildi {
+  border-color: rgba(16, 185, 129, 0.45);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+
+/* Google Sign-In Buttons */
+.google-btn-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #ffffff !important;
+  color: #1f2937 !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.google-btn-nav:hover {
+  background: #f1f5f9 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+.google-btn-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 18px;
+  border-radius: 12px;
+  background: #ffffff !important;
+  color: #1f2937 !important;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.google-btn-modal:hover {
+  background: #f8fafc !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+}
+
 </style>
 </head>
 <body>
 <nav class="nav">
-  <div class="nav-brand">
+  <div class="nav-brand" onclick="modulAlmashtir('sozlik')" style="cursor:pointer;">
     <div class="nav-logo">📚</div>
     <div><div class="nav-nomi">UzLearn</div><div class="nav-tagline">Ingliz Tili Akademiyasi</div></div>
   </div>
-  <span class="xp-belgi nav-xp" id="xpNav">⭐ 0 XP</span>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <button class="xp-belgi nav-xp" id="xpNav" onclick="modulAlmashtir('reyting')" style="cursor:pointer;" title="XP va Reyting">⭐ 0 XP</button>
+    <button class="daraja-tugma" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-color:rgba(245,158,11,0.35);color:#fbbf24;" onclick="modulAlmashtir('reyting')" title="Reyting jadvali">
+      <span>🏆</span> <b>Reyting</b>
+    </button>
+  </div>
   <div class="akkaunt" id="akkaunt"></div>
   <div class="nav-bayroq">🇺🇿 <span>↔</span> 🇬🇧</div>
 </nav>
 <div class="asosiy-joy">
 <aside class="yon-panel">
   <div class="yon-sarlavha">BO'LIMLAR</div>
-  <button class="modul-tugma faol" id="g-sozlik" onclick="modulAlmashtir('sozlik')">
+  <button class="modul-tugma faol" id="g-kunlik" onclick="modulAlmashtir('kunlik')">
+    <span class="modul-icon">📅</span>
+    <div><div class="modul-nomi">Bugungi Dars</div><div class="modul-tavsif">Grammatika + 40 so'z + O'yin</div></div>
+  </button>
+  <button class="modul-tugma" id="g-sozlik" onclick="modulAlmashtir('sozlik')">
     <span class="modul-icon">📖</span>
-    <div><div class="modul-nomi">So'zlik</div><div class="modul-tavsif" id="sozSoni">So'zlar va kartochkalar</div></div>
+    <div><div class="modul-nomi">So'zlik</div><div class="modul-tavsif" id="sozSoni">1500 so'z · Mavzuli</div></div>
   </button>
   <div style="padding:0 10px 6px;"><span class="xp-belgi" id="xpYonPanel">⭐ 0 XP</span></div>
   <button class="modul-tugma" id="g-grammatika" onclick="modulAlmashtir('grammatika')">
@@ -1310,7 +1749,7 @@ select option {
   </button>
   <button class="modul-tugma" id="g-matnlar" onclick="modulAlmashtir('matnlar')">
     <span class="modul-icon">📰</span>
-    <div><div class="modul-nomi">Matnlar</div><div class="modul-tavsif">O'qish va yozish</div></div>
+    <div><div class="modul-nomi">O'qish & Tinglash</div><div class="modul-tavsif">Reading, Listening & Writing</div></div>
   </button>
   <button class="modul-tugma" id="g-oyinlar" onclick="modulAlmashtir('oyinlar')">
     <span class="modul-icon">🎮</span>
@@ -2083,13 +2522,14 @@ function aralashtir(arr){
 
 /* ── BO'LIMLAR: 8 ta modul → 5 ta bo'lim (ichida tab) ── */
 const BOLIMLAR={
+  kunlik:{tugma:'g-kunlik',tab:null},
   sozlik:{tugma:'g-sozlik',tab:[['sozlik',"📖 Lug'at"],['kartochkalar','🃏 Kartochkalar'],['morfologiya',"🧩 So'z yasalishi"],['sinonim',"🔁 Sinonim / Antonim"]]},
   grammatika:{tugma:'g-grammatika',tab:null},
-  matnlar:{tugma:'g-matnlar',tab:[['matnlar',"📖 Matnlar (O'qish)"],['yozish',"✍️ Yozish (Mashq)"]]},
+  matnlar:{tugma:'g-matnlar',tab:[['matnlar',"📖 Reading"],['listening',"🎧 Listening"],['ielts',"🎓 IELTS Hub"],['yozish',"✍️ Writing"]]},
   oyinlar:{tugma:'g-oyinlar',tab:[['oyinlar',"🎮 Mini-o'yinlar (6 ta)"],['test','🎯 Test va Imtihon']]},
-  taraqqiyot:{tugma:'g-taraqqiyot',tab:null}
+  taraqqiyot:{tugma:'g-taraqqiyot',tab:[['taraqqiyot',"📊 Shaxsiy O'sish"],['reyting',"🏆 Reyting & Ligalar"]]}
 };
-const MOD_BOLIM={alifbo:'grammatika',morfologiya:'sozlik',matnlar:'matnlar',yozish:'matnlar',sozlik:'sozlik',kartochkalar:'sozlik',sinonim:'sozlik',omonim:'sozlik',antonim:'sozlik',grammatika:'grammatika',oyinlar:'oyinlar',test:'oyinlar',taraqqiyot:'taraqqiyot'};
+const MOD_BOLIM={kunlik:'kunlik',alifbo:'grammatika',morfologiya:'sozlik',matnlar:'matnlar',listening:'matnlar',ielts:'matnlar',yozish:'matnlar',sozlik:'sozlik',kartochkalar:'sozlik',sinonim:'sozlik',omonim:'sozlik',antonim:'sozlik',grammatika:'grammatika',oyinlar:'oyinlar',test:'oyinlar',taraqqiyot:'taraqqiyot',reyting:'taraqqiyot'};
 function bolimBelgila(mod){
   const b=MOD_BOLIM[mod]; if(!b) return;
   document.querySelectorAll('.modul-tugma').forEach(x=>x.classList.remove('faol'));
@@ -2099,9 +2539,7 @@ function bolimBelgila(mod){
   const aktivTab=(mod==='omonim'||mod==='antonim')?'sinonim':mod;
   joy.innerHTML = tb ? '<div class="ichki-tab">'+tb.map(([m,n])=>'<button class="'+(m===aktivTab?'faol':'')+'" onclick="modulAlmashtir(\''+m+'\')">'+n+'</button>').join('')+'</div>' : '';
 }
-/* Bir bo'limdagi ichki tablar (so'z munosabatlari) */
 const MUN_TABLAR=[['sinonim',"🔁 Sinonim"],['omonim',"🔀 Omonim"],['antonim',"↔️ Antonim"]];
-const MAT_TABLAR=[['matnlar',"📖 Matnlar"],['yozish',"✍️ Yozish"]];
 function altTabQoshish(tablar,aktiv){
   const j=document.getElementById('kontent-joy'); if(!j) return;
   j.insertAdjacentHTML('afterbegin',`<div class="alifbo-tablar alt-tablar">${tablar.map(([k,n])=>`<button class="daraja-tugma ${k===aktiv?'tanlangan':''}" onclick="modulAlmashtir('${k}')">${n}</button>`).join('')}</div>`);
@@ -2111,7 +2549,8 @@ function modulAlmashtir(mod){
   if(mod==='alifbo'){ try{ if(window.scrollTo) window.scrollTo(0,0); }catch(e){} alifboXarita(); return; }
   bolimBelgila(mod);
   try{ if(window.scrollTo) window.scrollTo(0,0); }catch(e){}
-  if(mod==='sozlik') sozlikKo_rsatish();
+  if(mod==='kunlik') kunlikDarsKo_rsatish();
+  else if(mod==='sozlik') sozlikKo_rsatish();
   else if(mod==='grammatika') grammatikaKo_rsatish();
   else if(mod==='test') testYangiBoshlash();
   else if(mod==='kartochkalar') kartochaYangiBoshlash();
@@ -2120,8 +2559,11 @@ function modulAlmashtir(mod){
   else if(mod==='omonim'){ omonimKo_rsatish(); altTabQoshish(MUN_TABLAR,'omonim'); }
   else if(mod==='antonim'){ antonimKo_rsatish(); altTabQoshish(MUN_TABLAR,'antonim'); }
   else if(mod==='taraqqiyot'){ taraqqiyotKo_rsatish(); }
+  else if(mod==='reyting'){ reytingKo_rsatish(); }
   else if(mod==='oyinlar') oyinlarKo_rsatish();
   else if(mod==='matnlar'){ joriyMatnTab='matnlar'; matnlarKo_rsatish(); }
+  else if(mod==='listening'){ joriyMatnTab='listening'; listeningKo_rsatish(); }
+  else if(mod==='ielts'){ joriyMatnTab='ielts'; ieltsHubKo_rsatish(); }
   else if(mod==='yozish'){ joriyMatnTab='yozish'; matnlarKo_rsatish(); }
 }
 
@@ -3085,41 +3527,209 @@ function sozTakrorMatni(d,en){
   return kun+' kundan keyin';
 }
 function sozlikFiltr(v){ sozlikHolatFiltr=v; sozlikKorsatilgan=SOZLIK_QADAM; sozlikKo_rsatish(); }
+/* ==========================================================================
+   MAVZULI LUG'AT (TOPIC-BASED VOCABULARY ENGINE)
+   ========================================================================== */
+const SOZ_MAVZULARI = [
+  ['hammasi', "🌟 Barcha mavzular", "Barcha 1500 so'z"],
+  ['oila_uy', "🏠 Oila & Kundalik hayot", "Oila a'zolari, uy jihozlari, kiyim va kun tartibi"],
+  ['taom_salomatlik', "🍎 Salomatlik & Taomlar", "Oziq-ovqat, shifokor, tana a'zolari va sport"],
+  ['sayohat_shahar', "✈️ Sayohat & Transport", "Shahar, transport, aeroport, yo'nalish va mehmonxona"],
+  ['ish_biznes', "💼 Kasb, Ish & Moliya", "Kasblar, kompaniya, pul, savdo va muzokaralar"],
+  ['talim_fan', "🎓 Ta'lim & Fan", "Maktab, universitet, fan, tadqiqot va kitoblar"],
+  ['texno_media', "💻 Texnologiya & Media", "Raqamli texnologiya, internet, media va aloqa"],
+  ['tabiat_muhit', "🌍 Tabiat & Atrof-muhit", "Ob-havo, hayvonlar, o'simliklar va ekologiya"],
+  ['inson_tuygu', "👤 Inson & Hissiyotlar", "Xarakter, his-tuyg'ular, munosabatlar va tafakkur"]
+];
+
+let joriySozlikMavzu = 'hammasi';
+
+const MAVZU_KALITLARI = {
+  oila_uy: [
+    'family','father','mother','brother','sister','parent','child','baby','son','daughter','wife','husband',
+    'house','home','room','door','window','table','chair','bed','kitchen','bathroom','wall','floor','roof',
+    'clothes','shirt','pants','trousers','shoe','dress','hat','coat','jacket','wear','clean','wash','tidy',
+    'sleep','wake','morning','night','evening','live','stay','neighbor','flat','apartment','furniture',
+    'clock','watch','key','mirror','blanket','curtain','towel','soap','alarm','routine','cousin','uncle','aunt'
+  ],
+  taom_salomatlik: [
+    'food','water','bread','tea','milk','egg','rice','meat','fish','apple','banana','orange','potato','onion',
+    'salt','sugar','oil','soup','eat','drink','cook','bake','taste','delicious','sweet','bitter','sour',
+    'health','healthy','doctor','nurse','hospital','medicine','pill','pain','sick','ill','cough','fever',
+    'body','head','eye','ear','nose','mouth','tooth','teeth','arm','hand','leg','foot','feet','heart','blood',
+    'sport','run','walk','jump','swim','exercise','fit','fitness','diet','fruit','vegetable','dinner','lunch',
+    'breakfast','meal','coffee','juice','cake','snack','restaurant','cafe','waiter','menu','plate','spoon','fork'
+  ],
+  sayohat_shahar: [
+    'travel','trip','journey','tour','visit','tourist','luggage','bag','suitcase','passport','visa','ticket',
+    'car','bus','train','plane','flight','airport','station','railway','subway','metro','taxi','drive','fly',
+    'ride','road','street','avenue','city','town','village','capital','country','map','direction','north','south',
+    'east','west','left','right','straight','near','far','distance','hotel','hostel','reservation','arrive','leave',
+    'depart','bridge','building','square','museum','park','traffic','cross','transport','vehicle','foreign','abroad'
+  ],
+  ish_biznes: [
+    'work','job','career','profession','office','company','firm','business','boss','manager','worker','employee',
+    'employer','staff','colleague','salary','wage','money','cash','bank','coin','dollar','cost','price','pay',
+    'buy','sell','shop','market','trade','commercial','economic','economy','finance','financial','tax','budget',
+    'invest','investment','profit','loss','debt','contract','agreement','deal','meeting','client','customer',
+    'hire','fire','interview','resume','industry','factory','product','production','service','manage','leader'
+  ],
+  talim_fan: [
+    'school','college','university','class','classroom','lesson','course','study','learn','teach','teacher',
+    'student','pupil','professor','book','pen','pencil','paper','notebook','desk','exam','test','grade','score',
+    'degree','diploma','knowledge','science','scientific','scientist','research','experiment','theory','fact',
+    'library','read','write','speaking','listening','reading','writing','language','word','sentence','grammar',
+    'rule','vocabulary','meaning','translate','translation','homework','exercise','subject','math','history'
+  ],
+  texno_media: [
+    'phone','smartphone','computer','laptop','screen','keyboard','mouse','internet','website','online','offline',
+    'digital','network','software','hardware','app','application','code','program','data','database','file',
+    'message','chat','email','send','receive','download','upload','video','photo','camera','audio','radio',
+    'television','tv','media','news','newspaper','article','post','social','system','device','electronic','tech',
+    'information','click','search','connect','connection','virtual','artificial','intelligence','robot','device'
+  ],
+  tabiat_muhit: [
+    'sun','moon','star','sky','cloud','rain','snow','wind','storm','weather','hot','cold','warm','cool','dry',
+    'wet','tree','forest','flower','grass','plant','leaf','leaves','wood','water','sea','ocean','river','lake',
+    'mountain','hill','valley','island','land','ground','earth','soil','sand','stone','rock','animal','dog',
+    'cat','bird','horse','cow','sheep','wild','nature','natural','environment','environmental','climate','planet',
+    'air','pollution','clean','green','eco','protect','resource','energy','season','spring','summer','autumn','winter'
+  ],
+  inson_tuygu: [
+    'person','people','man','woman','boy','girl','friend','friendship','mind','soul','spirit','think','thought',
+    'believe','belief','feel','feeling','emotion','emotional','happy','happiness','sad','smile','laugh','cry',
+    'angry','anger','fear','afraid','brave','courage','honest','honesty','kind','kindness','smart','clever','wise',
+    'calm','quiet','loud','lazy','hardworking','polite','rude','patient','patience','curious','proud','pride',
+    'love','like','hate','hope','dream','wish','memory','remember','forget','trust','respect','honor','human'
+  ]
+};
+
+function sozMavzusiTop(en, uz){
+  const matn = (String(en) + ' ' + String(uz)).toLowerCase();
+  for (const [mavzu, kalitlar] of Object.entries(MAVZU_KALITLARI)) {
+    if (kalitlar.some(k => matn.includes(k))) return mavzu;
+  }
+  const keys = Object.keys(MAVZU_KALITLARI);
+  let hash = 0;
+  for (let i = 0; i < en.length; i++) hash = (hash * 31 + en.charCodeAt(i)) % keys.length;
+  return keys[Math.abs(hash)];
+}
+
+function sozMavzuNomi(kod){
+  const item = SOZ_MAVZULARI.find(x => x[0] === kod);
+  return item ? item[1] : kod;
+}
+
 function sozlikKo_rsatish(){
   const hammasi = SOZLAR_DB[joriySozlikDaraja];
-  const sanoq={hammasi:hammasi.length,yangi:0,urganilmoqda:0,yodlangan:0,mustahkam:0};
-  hammasi.forEach(([en])=>{ sanoq[sozHolatKategoriya(joriySozlikDaraja,en)]++; });
-  const royxat = sozlikHolatFiltr==='hammasi' ? hammasi : hammasi.filter(([en])=>sozHolatKategoriya(joriySozlikDaraja,en)===sozlikHolatFiltr);
-  document.getElementById('kontent-joy').innerHTML=`
+  const sanoq = {hammasi: hammasi.length, yangi: 0, urganilmoqda: 0, yodlangan: 0, mustahkam: 0};
+  hammasi.forEach(([en]) => { sanoq[sozHolatKategoriya(joriySozlikDaraja, en)]++; });
+
+  let mavzuRoyxat = hammasi;
+  if (joriySozlikMavzu !== 'hammasi') {
+    mavzuRoyxat = hammasi.filter(([en, uz]) => sozMavzusiTop(en, uz) === joriySozlikMavzu);
+  }
+
+  const royxat = sozlikHolatFiltr === 'hammasi'
+    ? mavzuRoyxat
+    : mavzuRoyxat.filter(([en]) => sozHolatKategoriya(joriySozlikDaraja, en) === sozlikHolatFiltr);
+
+  const mavzuSanoq = {};
+  SOZ_MAVZULARI.forEach(([k]) => { mavzuSanoq[k] = 0; });
+  hammasi.forEach(([en, uz]) => {
+    const m = sozMavzusiTop(en, uz);
+    mavzuSanoq[m] = (mavzuSanoq[m] || 0) + 1;
+  });
+  mavzuSanoq['hammasi'] = hammasi.length;
+
+  const darajaTugmalar = Object.keys(DARAJA_NOMLARI).map(d =>
+    darajaKnopka(d, joriySozlikDaraja === d, "sozlikDaraja('" + d + "')")
+  ).join('');
+
+  const mavzuOptions = SOZ_MAVZULARI.map(([k, nom]) =>
+    `<option value="${k}" ${joriySozlikMavzu === k ? 'selected' : ''}>${nom} (${mavzuSanoq[k] || 0} ta so'z)</option>`
+  ).join('');
+
+  document.getElementById('kontent-joy').innerHTML = `
     <div class="sahifa-sarlavha">
-      <h2>So'zlik — ${JAMI_SOZLAR} So'z</h2>
-      <p>Dunyo bo'yicha eng ko'p ishlatiladigan inglizcha so'zlar, A1 dan C1 gacha (C2 kamdan-kam kerak bo'lgani uchun kiritilmagan)</p>
+      <h2>📖 So'zlik — ${JAMI_SOZLAR} So'z (Mavzuli Lug'at)</h2>
+      <p>CEFR darajalari (A1–C1) va 8 ta asosiy mavzular bo'yicha saralangan lug'at. Har bir so'zda talaffuz 🔊 va gapirib ko'rish 🎙️ imkoniyati mavjud.</p>
     </div>
+
     <div class="daraja-filter">
-      ${Object.keys(DARAJA_NOMLARI).map(d=>darajaKnopka(d,joriySozlikDaraja===d,"sozlikDaraja('"+d+"')")).join('')}
+      ${darajaTugmalar}
     </div>
-    <div class="daraja-filter sozlik-holat-filtr">
-      ${SOZ_HOLATLAR.map(([k,n])=>`<button class="daraja-tugma ${sozlikHolatFiltr===k?'tanlangan':''}" onclick="sozlikFiltr('${k}')">${n} <small>${sanoq[k]}</small></button>`).join('')}
+
+    <div class="gram-filtr-panel" style="padding:14px 18px;margin-bottom:16px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:12px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:12.5px;font-weight:700;color:#38bdf8;">🏷️ Mavzu (Topic):</span>
+          <select class="gram-select" style="min-width:260px;" onchange="sozlikMavzuFiltr(this.value)">
+            ${mavzuOptions}
+          </select>
+        </div>
+        <div style="font-size:12px;color:#94a3b8;">
+          Ko'rsatilmoqda: <strong style="color:#f8fafc;">${royxat.length} ta</strong> so'z
+        </div>
+      </div>
+
+      <div class="daraja-filter sozlik-holat-filtr" style="margin-bottom:0;">
+        ${SOZ_HOLATLAR.map(([k, n]) => `<button class="daraja-tugma ${sozlikHolatFiltr === k ? 'tanlangan' : ''}" style="padding:6px 12px !important;font-size:12px !important;" onclick="sozlikFiltr('${k}')">${n} <small>${sanoq[k]}</small></button>`).join('')}
+      </div>
     </div>
-    <div class="sozlik-son">${royxat.length} ta so'z — ${DARAJA_NOMLARI[joriySozlikDaraja]}${sozlikHolatFiltr==='hammasi'?'':' · '+(SOZ_HOLATLAR.find(x=>x[0]===sozlikHolatFiltr)||[])[1]}</div>
+
+    <div class="sozlik-son">
+      ${DARAJA_NOMLARI[joriySozlikDaraja]} · <span style="color:#38bdf8;font-weight:600;">${sozMavzuNomi(joriySozlikMavzu)}</span> (${royxat.length} ta so'z)
+    </div>
+
     <div class="sozlik-grid">
-      ${royxat.slice(0,sozlikKorsatilgan).map(([en,uz])=>{
-        const k=sozHolatKategoriya(joriySozlikDaraja,en);
-        const belgi=({yangi:'🆕 Yangi',urganilmoqda:"📘 O'rganilmoqda",yodlangan:'🧠 Yodlangan',mustahkam:'🏆 Mustahkam'})[k];
+      ${royxat.length ? royxat.slice(0, sozlikKorsatilgan).map(([en, uz]) => {
+        const k = sozHolatKategoriya(joriySozlikDaraja, en);
+        const belgi = ({yangi: '🆕 Yangi', urganilmoqda: "📘 O'rganilmoqda", yodlangan: '🧠 Yodlangan', mustahkam: '🏆 Mustahkam'})[k];
+        const mavzuKod = sozMavzusiTop(en, uz);
+        const mavzuNom = sozMavzuNomi(mavzuKod);
         return `
         <div class="sozlik-karta">
-          <div class="inglizcha">${en}</div>
-          <div class="uzbekcha">🇺🇿 ${uz}</div>
-          <div class="sozlik-holat">${belgi} · ${sozTakrorMatni(joriySozlikDaraja,en)}</div>
-          <div class="sozlik-ovoz-guruh"><button class="sozlik-eshit" onclick="gapirtir('${en.replace(/'/g,"\\'")}')" title="Tinglash">🔊</button><button class="sozlik-mik" onclick="tezGapirOch('${en.replace(/'/g,"\\'")}','${uz.replace(/'/g,"\\'")}')" title="Talaffuzni sinash (Speaking)">🎙️</button></div>
-        </div>`;}).join('')}
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px;">
+            <span style="font-size:10px;font-weight:700;padding:2px 7px;border-radius:6px;background:rgba(56,189,248,0.12);color:#38bdf8;border:1px solid rgba(56,189,248,0.25);">${mavzuNom.split(' ')[0]}</span>
+            <span style="font-size:10.5px;color:#94a3b8;font-weight:600;">${joriySozlikDaraja}</span>
+          </div>
+          <div class="inglizcha">${akEsc(en)}</div>
+          <div class="uzbekcha">🇺🇿 ${akEsc(uz)}</div>
+          <div class="sozlik-holat">${belgi} · ${sozTakrorMatni(joriySozlikDaraja, en)}</div>
+          <div class="sozlik-ovoz-guruh">
+            <button class="sozlik-eshit" onclick="gapirtir('${en.replace(/'/g, "\\'")}')" title="Tinglash">🔊</button>
+            <button class="sozlik-mik" onclick="tezGapirOch('${en.replace(/'/g, "\\\'")}','${uz.replace(/'/g, "\\\'")}')" title="Talaffuzni sinash (Speaking)">🎙️</button>
+          </div>
+        </div>`;
+      }).join('') : `
+        <div class="test-karta" style="grid-column:1/-1;text-align:center;padding:34px;">
+          <div style="font-size:36px;margin-bottom:8px;">🔍</div>
+          <div style="font-weight:700;margin-bottom:6px;">Bu filtrda so'zlar topilmadi</div>
+          <button class="test-keyingi" onclick="sozlikMavzuFiltr('hammasi');sozlikFiltr('hammasi');">Barcha so'zlarni ko'rish</button>
+        </div>
+      `}
     </div>
-    ${royxat.length>sozlikKorsatilgan?`<div style="text-align:center;margin:18px 0 6px;"><button class="daraja-tugma" style="min-height:46px;padding:10px 24px;font-size:14px;" onclick="sozlikYana()">Yana ko'rsatish (${Math.min(SOZLIK_QADAM,royxat.length-sozlikKorsatilgan)} ta) ▼</button><div class="sozlik-son" style="margin-top:8px;">${sozlikKorsatilgan} / ${royxat.length}</div></div>`:''}`;
-  document.getElementById('sozSoni').textContent=`${JAMI_SOZLAR} so'z, 5 daraja`;
+
+    ${royxat.length > sozlikKorsatilgan ? `
+      <div style="text-align:center;margin:22px 0 10px;">
+        <button class="daraja-tugma" style="min-height:46px;padding:12px 28px;font-size:14px;font-weight:700;background:rgba(30,41,59,0.85) !important;" onclick="sozlikYana()">
+          Yana ko'rsatish (${Math.min(SOZLIK_QADAM, royxat.length - sozlikKorsatilgan)} ta so'z) ▼
+        </button>
+        <div class="sozlik-son" style="margin-top:8px;">${sozlikKorsatilgan} / ${royxat.length} ta ko'rsatildi</div>
+      </div>` : ''}
+  `;
+  document.getElementById('sozSoni').textContent = `${JAMI_SOZLAR} so'z, 8 mavzu`;
   kvotaBlokQoshish();
 }
-/* Bugungi mashq kvotasi: kunlik maqsad (savol soni) va natija */
-const KVOTA_MAQSAD=20;
+
+function sozlikMavzuFiltr(m){
+  joriySozlikMavzu = m;
+  sozlikKorsatilgan = 60;
+  sozlikKo_rsatish();
+}
+
+const KVOTA_MAQSAD = 20;
 function bugungiFaolDaraja(){
   const ochiqlar=DARAJA_TARTIBI.filter(d=>darajaOchiqmi(d));
   return ochiqlar.find(d=>darajaReja(d).foiz<100)||ochiqlar[ochiqlar.length-1]||'A1';
@@ -3150,98 +3760,183 @@ function sozlikDaraja(d){joriySozlikDaraja=d;sozlikKorsatilgan=SOZLIK_QADAM;sozl
 function sozlikYana(){sozlikKorsatilgan+=SOZLIK_QADAM;sozlikKo_rsatish();}
 
 /* ── SINONIMLAR SAHIFASI ── */
-function sinonimKo_rsatish(){
-  const royxat=SINONIMLAR[joriySinonimDaraja]||[];
-  const q=x=>x.replace(/'/g,"\\'");
-  document.getElementById('kontent-joy').innerHTML=`
-    <div class="sahifa-sarlavha">
-      <h2>Sinonimlar — ${royxat.length} juftlik</h2>
-      <p>Bir xil ma'noli, lekin boshqacha yoziladigan so'zlar. Har juftlikni tinglab ko'ring.</p>
-    </div>
-    <div style="background:#0b1b3d;border:1px solid var(--chegara);border-radius:12px;padding:14px 16px;margin-bottom:16px;font-size:14px;line-height:1.6;">
-      <div style="font-weight:700;margin-bottom:6px;">💡 Sinonim nima?</div>
-      <div>Sinonim — <b>ma'nosi bir xil yoki juda yaqin</b>, lekin yozilishi boshqa so'z.</div>
-      <div style="margin-top:8px;color:#38bdf8;">Misol: <b>big</b> va <b>large</b> — ikkalasi ham "katta" degani.</div>
-      <div style="margin-top:4px;">✅ "The house is <b>big</b>." → "The house is <b>large</b>." — ma'no o'zgarmaydi.</div>
-      <div style="margin-top:6px;font-size:12.5px;color:var(--kulrang);">Eslatma: sinonimlar 100% bir xil emas. Masalan, "big" ko'proq kundalik nutqda ishlatiladi.</div>
-    </div>
-    <div class="daraja-filter">
-      ${Object.keys(SINONIMLAR).map(d=>`<button class="daraja-tugma ${joriySinonimDaraja===d?'tanlangan':''}" onclick="sinonimDaraja('${d}')">${DARAJA_NOMLARI[d]||d}</button>`).join('')}
-    </div>
-    <div class="sozlik-grid">
-      ${royxat.map(([w,s,uz])=>`
-        <div class="sozlik-karta">
-                    <div class="inglizcha">${w} <span style="color:var(--kulrang);font-weight:400;">≈</span> ${s}</div>
-          <div class="uzbekcha">🇺🇿 ${uz}</div>
-          <button class="sozlik-eshit" onclick="gapirtir('${q(w)}')" title="Tinglash">🔊</button>
-        </div>`).join('')}
-    </div>`;
+/* ==========================================================================
+   TOPIC-BASED SYNONYMS & ANTONYMS ENGINE
+   ========================================================================== */
+const REL_MAVZULAR = [
+  ['hammasi', "🌟 Barcha mavzular"],
+  ['emotions', "👤 Inson, His-tuyg'u & Xarakter"],
+  ['action', "⚡ Harakat, Holat & Fe'llar"],
+  ['qualities', "📐 Sifat, Hajm & Shakl"],
+  ['thinking', "🎓 Aql, Tafakkur & Muloqot"],
+  ['society', "💼 Ish, Moliya & Jamiyat"],
+  ['nature', "🌍 Vaqt, Atrof-muhit & Tabiat"]
+];
+
+let joriySinonimMavzu = 'hammasi';
+let joriyAntonimMavzu = 'hammasi';
+
+function relMavzusiTop(w1, w2, uz){
+  const txt = (String(w1) + ' ' + String(w2) + ' ' + String(uz)).toLowerCase();
+  if (/happy|sad|angry|glad|scared|fear|brave|honest|candid|smart|clever|polite|rude|generous|stingy|shy|proud|kind|cruel|calm|humble|bold|patient/.test(txt)) return 'emotions';
+  if (/start|begin|end|finish|stop|run|walk|jump|fly|move|create|destroy|build|break|catch|release|improve|mitigate|aggravate|boost|diminish|fall|rise/.test(txt)) return 'action';
+  if (/big|large|small|little|huge|tiny|wide|narrow|thick|thin|heavy|light|hot|cold|warm|cool|hard|soft|rigid|flexible|rough|smooth|bright|dark/.test(txt)) return 'qualities';
+  if (/think|idea|concept|learn|teach|study|reason|logic|coherent|doubt|argue|agree|disagree|talk|speak|shout|tell|explain|understand/.test(txt)) return 'thinking';
+  if (/money|cost|price|job|work|office|company|law|rule|society|community|tax|trade|business|status|power|order|free|secure|perilous|fair|just/.test(txt)) return 'society';
+  if (/time|early|late|ancient|modern|future|past|day|night|sun|rain|water|earth|world|nature|wild|tame|ubiquitous|rare|dense|sparse/.test(txt)) return 'nature';
+  return 'qualities';
 }
-function sinonimDaraja(d){joriySinonimDaraja=d;sinonimKo_rsatish();}
+
+function sinonimKo_rsatish(){
+  const hammasi = SINONIMLAR[joriySinonimDaraja] || [];
+  const filtrlangan = joriySinonimMavzu === 'hammasi'
+    ? hammasi
+    : hammasi.filter(([w1, w2, uz]) => relMavzusiTop(w1, w2, uz) === joriySinonimMavzu);
+
+  const darajaTugmalar = Object.keys(SINONIMLAR).map(d =>
+    `<button class="daraja-tugma ${joriySinonimDaraja === d ? 'tanlangan' : ''}" onclick="joriySinonimDaraja='${d}';sinonimKo_rsatish()">${d}</button>`
+  ).join('');
+
+  const mavzuTugmalar = REL_MAVZULAR.map(([k, nom]) =>
+    `<button class="gram-turkum-btn ${joriySinonimMavzu === k ? 'tanlangan' : ''}" onclick="joriySinonimMavzu='${k}';sinonimKo_rsatish()">${nom}</button>`
+  ).join('');
+
+  document.getElementById('kontent-joy').innerHTML = `
+    <div class="sahifa-sarlavha">
+      <h2>🔁 Topic-Based Sinonimlar — ${filtrlangan.length} juftlik</h2>
+      <p>IELTS va CEFR uchun bir xil ma'noli boy so'z boyligi. Mavzular bo'yicha saralab, nutqingizdagi so'z takrorini kamaytiring.</p>
+    </div>
+
+    <div style="background:rgba(15,23,42,0.85);border:1px solid rgba(56,189,248,0.25);border-radius:14px;padding:16px 18px;margin-bottom:18px;">
+      <div style="font-weight:700;color:#38bdf8;margin-bottom:6px;">💡 IELTS & CEFR uchun sinonimlarning ahamiyati:</div>
+      <div style="font-size:13.5px;color:#cbd5e1;line-height:1.65;">
+        Writing va Speaking'da bitta so'zni qayta-qayta ishlatmaslik (Lexical Resource) ballingizni 6.0 dan 7.5+ ga ko'taradi. Masalan: <b>problem</b> o'rniga <b>issue</b>, <b>important</b> o'rniga <b>vital / crucial</b>.
+      </div>
+    </div>
+
+    <div class="gram-filtr-panel" style="padding:14px 18px;margin-bottom:18px;">
+      <div style="font-size:12px;font-weight:700;color:#94a3b8;margin-bottom:6px;">CEFR DARAJA:</div>
+      <div class="daraja-filter" style="margin-bottom:10px;">${darajaTugmalar}</div>
+      <div style="font-size:12px;font-weight:700;color:#94a3b8;margin-bottom:6px;">MAVZU (TOPIC):</div>
+      <div class="gram-turkum-qator">${mavzuTugmalar}</div>
+    </div>
+
+    <div class="sozlik-grid">
+      ${filtrlangan.map(([w1, w2, uz]) => {
+        const mavzuKod = relMavzusiTop(w1, w2, uz);
+        const mavzuNom = (REL_MAVZULAR.find(x => x[0] === mavzuKod) || [])[1] || '';
+        return `
+        <div class="sozlik-karta" style="padding-bottom:18px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;background:rgba(56,189,248,0.15);color:#38bdf8;">${mavzuNom.split(' ')[0]}</span>
+            <span style="font-size:11px;color:#94a3b8;font-weight:600;">${joriySinonimDaraja}</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:4px;">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#f8fafc;">${akEsc(w1)}</span>
+            <span style="color:#10b981;font-weight:700;font-size:16px;">≈</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#38bdf8;">${akEsc(w2)}</span>
+          </div>
+          <div style="font-size:13.5px;color:#cbd5e1;margin-bottom:12px;">🇺🇿 ${akEsc(uz)}</div>
+          <div style="display:flex;gap:6px;justify-content:space-between;">
+            <button class="daraja-tugma" style="flex:1;padding:5px 8px !important;font-size:11.5px !important;" onclick="gapirtir('${w1.replace(/'/g,"\\'")}')">🔊 ${akEsc(w1)}</button>
+            <button class="daraja-tugma" style="flex:1;padding:5px 8px !important;font-size:11.5px !important;" onclick="gapirtir('${w2.replace(/'/g,"\\'")}')">🔊 ${akEsc(w2)}</button>
+            <button class="sozlik-mik" style="width:28px;height:28px;" onclick="tezGapirOch('${w1.replace(/'/g,"\\'")} and ${w2.replace(/'/g,"\\'")}', '${uz.replace(/'/g,"\\'")}')" title="Aytib ko'rish">🎙️</button>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>
+  `;
+}
+function sinonimDaraja(d){ joriySinonimDaraja=d; sinonimKo_rsatish(); }
+
 
 /* ── OMONIMLAR SAHIFASI ── */
 function omonimKo_rsatish(){
-  const royxat=OMONIMLAR[joriyOmonimDaraja]||[];
-  const q=x=>x.replace(/'/g,"\\'");
-  document.getElementById('kontent-joy').innerHTML=`
+  const royxat = OMONIMLAR[joriyOmonimDaraja] || [];
+  const q = x => String(x).replace(/'/g, "\\'");
+  document.getElementById('kontent-joy').innerHTML = `
     <div class="sahifa-sarlavha">
-      <h2>Omonimlar — ${royxat.length} so'z</h2>
-      <p>Bir xil yoziladigan, lekin turli ma'noga ega so'zlar. Gap ma'noni belgilaydi.</p>
+      <h2>🔀 Omonimlar — ${royxat.length} so'z</h2>
+      <p>Bir xil yoziladigan, lekin turli ma'noga ega so'zlar. Gap konteksti ma'noni belgilaydi.</p>
     </div>
-    <div style="background:#0b1b3d;border:1px solid var(--chegara);border-radius:12px;padding:14px 16px;margin-bottom:16px;font-size:14px;line-height:1.6;">
-      <div style="font-weight:700;margin-bottom:6px;">💡 Omonim nima?</div>
-      <div>Omonim — <b>yozilishi bir xil</b>, lekin <b>turli ma'noli</b> so'z. Ma'noni <b>gap</b> belgilaydi.</div>
-      <div style="margin-top:8px;color:#38bdf8;">Misol: <b>bank</b></div>
-      <div style="margin-top:4px;">🏦 "I went to the <b>bank</b> to get money." → moliya muassasasi</div>
-      <div style="margin-top:4px;">🏞 "We sat on the <b>bank</b> of the river." → daryo qirg'og'i</div>
-      <div style="margin-top:6px;font-size:12.5px;color:var(--kulrang);">Eslatma: ba'zan talaffuz ham farq qiladi (masalan, "lead" — yetakchilik qilmoq / qo'rg'oshin).</div>
+    <div style="background:rgba(15,23,42,0.85);border:1px solid rgba(56,189,248,0.25);border-radius:12px;padding:16px 18px;margin-bottom:16px;font-size:14px;line-height:1.6;">
+      <div style="font-weight:700;color:#38bdf8;margin-bottom:6px;">💡 Omonim nima?</div>
+      <div>Omonim — <b>yozilishi bir xil</b>, lekin <b>turli ma'noli</b> so'z. Masalan: <b>bank</b> (moliya banki) vs <b>bank</b> (daryo qirg'og'i).</div>
     </div>
     <div class="daraja-filter">
-      ${Object.keys(OMONIMLAR).map(d=>`<button class="daraja-tugma ${joriyOmonimDaraja===d?'tanlangan':''}" onclick="omonimDaraja('${d}')">${DARAJA_NOMLARI[d]||d}</button>`).join('')}
+      ${Object.keys(OMONIMLAR).map(d => `<button class="daraja-tugma ${joriyOmonimDaraja === d ? 'tanlangan' : ''}" onclick="omonimDaraja('${d}')">${DARAJA_NOMLARI[d] || d}</button>`).join('')}
     </div>
     <div class="sozlik-grid">
-      ${royxat.map(([w,senses])=>`
+      ${royxat.map(([w, senses]) => `
         <div class="sozlik-karta" style="grid-column:1 / -1;">
-                    <div class="inglizcha">${w}</div>
-          ${senses.map(([uz,gap],i)=>`
-            <div class="uzbekcha" style="margin-top:6px;">${i+1}. 🇺🇿 ${uz}</div>
-            <div style="font-size:13.5px;color:#38bdf8;">${gap.replace(new RegExp('\\b'+w+'\\b','i'),m=>`<strong style="color:var(--sariq);">${m}</strong>`)}</div>
-            <button class="sozlik-eshit" style="position:static;display:inline-flex;margin:2px 0 8px;" onclick="gapirtir('${q(gap)}')" title="Tinglash">🔊</button>`).join('')}
+          <div class="inglizcha">${akEsc(w)}</div>
+          ${senses.map(([uz, gap], i) => `
+            <div class="uzbekcha" style="margin-top:6px;">${i + 1}. 🇺🇿 ${akEsc(uz)}</div>
+            <div style="font-size:13.5px;color:#38bdf8;">${gap.replace(new RegExp('\\b' + w + '\\b', 'i'), m => `<strong style="color:var(--sariq);">${m}</strong>`)}</div>
+            <div style="display:flex;gap:6px;margin:4px 0 8px;">
+              <button class="sozlik-eshit" style="position:static;display:inline-flex;" onclick="gapirtir('${q(gap)}')" title="Tinglash">🔊</button>
+              <button class="sozlik-mik" style="position:static;display:inline-flex;" onclick="tezGapirOch('${q(gap)}','${q(uz)}')" title="Aytib ko'rish">🎙️</button>
+            </div>`).join('')}
         </div>`).join('')}
     </div>`;
 }
-function omonimDaraja(d){joriyOmonimDaraja=d;omonimKo_rsatish();}
+function omonimDaraja(d){ joriyOmonimDaraja = d; omonimKo_rsatish(); }
 
-/* ── ANTONIMLAR SAHIFASI ── */
 function antonimKo_rsatish(){
-  const royxat=ANTONIMLAR[joriyAntonimDaraja]||[];
-  const q=x=>x.replace(/'/g,"\\'");
-  const hl=(s,w)=>s.replace(new RegExp('\\b'+w+'\\b','i'),m=>`<strong style="color:var(--sariq);">${m}</strong>`);
-  document.getElementById('kontent-joy').innerHTML=`
+  const hammasi = ANTONIMLAR[joriyAntonimDaraja] || [];
+  const filtrlangan = joriyAntonimMavzu === 'hammasi'
+    ? hammasi
+    : hammasi.filter(([w1, w2, uz]) => relMavzusiTop(w1, w2, uz) === joriyAntonimMavzu);
+
+  const darajaTugmalar = Object.keys(ANTONIMLAR).map(d =>
+    `<button class="daraja-tugma ${joriyAntonimDaraja === d ? 'tanlangan' : ''}" onclick="antonimDaraja('${d}')">${d}</button>`
+  ).join('');
+
+  const mavzuTugmalar = REL_MAVZULAR.map(([k, nom]) =>
+    `<button class="gram-turkum-btn ${joriyAntonimMavzu === k ? 'tanlangan' : ''}" onclick="joriyAntonimMavzu='${k}';antonimKo_rsatish()">${nom}</button>`
+  ).join('');
+
+  document.getElementById('kontent-joy').innerHTML = `
     <div class="sahifa-sarlavha">
-      <h2>Antonimlar — ${royxat.length} juftlik</h2>
-      <p>Ma'nosi qarama-qarshi so'zlar. Har juftlik misol gap bilan berilgan.</p>
+      <h2>↔️ Topic-Based Antonimlar — ${filtrlangan.length} juftlik</h2>
+      <p>Qarama-qarshi ma'noli so'zlar juftligi, talaffuz va kontekstdagi misol gaplar.</p>
     </div>
-    <div style="background:#0b1b3d;border:1px solid var(--chegara);border-radius:12px;padding:14px 16px;margin-bottom:16px;font-size:14px;line-height:1.6;">
-      <div style="font-weight:700;margin-bottom:6px;">💡 Antonim nima?</div>
-      <div>Antonim — <b>ma'nosi teskari</b> so'z. Masalan, <b>hot</b> (issiq) ↔ <b>cold</b> (sovuq).</div>
-      <div style="margin-top:8px;">✅ "The soup is <b>hot</b>." → "The soup is <b>cold</b>." — gap butunlay boshqacha ma'noga ega.</div>
-      <div style="margin-top:6px;font-size:12.5px;color:var(--kulrang);">Eslatma: antonimlarni gapda ishlatishda ma'no to'g'ri kelishiga e'tibor bering.</div>
+
+    <div class="gram-filtr-panel" style="padding:14px 18px;margin-bottom:18px;">
+      <div style="font-size:12px;font-weight:700;color:#94a3b8;margin-bottom:6px;">CEFR DARAJA:</div>
+      <div class="daraja-filter" style="margin-bottom:10px;">${darajaTugmalar}</div>
+      <div style="font-size:12px;font-weight:700;color:#94a3b8;margin-bottom:6px;">MAVZU (TOPIC):</div>
+      <div class="gram-turkum-qator">${mavzuTugmalar}</div>
     </div>
-    <div class="daraja-filter">
-      ${Object.keys(ANTONIMLAR).map(d=>`<button class="daraja-tugma ${joriyAntonimDaraja===d?'tanlangan':''}" onclick="antonimDaraja('${d}')">${DARAJA_NOMLARI[d]||d}</button>`).join('')}
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;">
+      ${filtrlangan.map(([w1, w2, uz, misol]) => {
+        const mavzuKod = relMavzusiTop(w1, w2, uz);
+        const mavzuNom = (REL_MAVZULAR.find(x => x[0] === mavzuKod) || [])[1] || '';
+        return `
+        <div class="test-karta" style="max-width:none;padding:18px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:6px;background:rgba(244,63,94,0.15);color:#f43f5e;">${mavzuNom.split(' ')[0]}</span>
+            <span style="font-size:11.5px;color:#94a3b8;font-weight:600;">${joriyAntonimDaraja}</span>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:6px;">
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:800;color:#f8fafc;">${akEsc(w1)}</div>
+            <span style="font-size:20px;color:#f43f5e;font-weight:700;">↔</span>
+            <div style="font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:800;color:#f43f5e;">${akEsc(w2)}</div>
+          </div>
+          <div style="font-size:13.5px;color:#38bdf8;margin-bottom:10px;">🇺🇿 Asosiy ma'nosi: <strong>${akEsc(uz)}</strong></div>
+          ${misol ? `<div style="font-size:13px;color:#e2e8f0;background:rgba(9,13,24,0.65);border-left:3px solid #3b82f6;border-radius:0 8px 8px 0;padding:8px 12px;margin-bottom:12px;line-height:1.5;">💬 ${akEsc(misol)}</div>` : ''}
+          <div style="display:flex;gap:6px;justify-content:space-between;">
+            <button class="daraja-tugma" style="flex:1;padding:5px 8px !important;font-size:12px !important;" onclick="gapirtir('${w1.replace(/'/g,"\\'")}')">🔊 ${akEsc(w1)}</button>
+            <button class="daraja-tugma" style="flex:1;padding:5px 8px !important;font-size:12px !important;" onclick="gapirtir('${w2.replace(/'/g,"\\'")}')">🔊 ${akEsc(w2)}</button>
+            <button class="sozlik-mik" style="width:30px;height:30px;" onclick="tezGapirOch('${w1.replace(/'/g,"\\'")} versus ${w2.replace(/'/g,"\\'")}', '${uz.replace(/'/g,"\\'")}')" title="Aytib ko'rish">🎙️</button>
+          </div>
+        </div>`;
+      }).join('')}
     </div>
-    <div class="sozlik-grid">
-      ${royxat.map(([w,a,uz,ex])=>`
-        <div class="sozlik-karta" style="grid-column:1 / -1;">
-                    <div class="inglizcha">${w} <span style="color:var(--kulrang);font-weight:400;">↔</span> ${a}</div>
-          <div class="uzbekcha">🇺🇿 ${uz}</div>
-          <div style="font-size:13.5px;color:#38bdf8;margin-top:4px;">${hl(ex,w)}</div>
-          <button class="sozlik-eshit" style="position:static;display:inline-flex;margin:2px 0 4px;" onclick="gapirtir('${q(ex)}')" title="Tinglash">🔊</button>
-        </div>`).join('')}
-    </div>`;
+  `;
 }
-function antonimDaraja(d){joriyAntonimDaraja=d;antonimKo_rsatish();}
+function antonimDaraja(d){ joriyAntonimDaraja=d; antonimKo_rsatish(); }
 
 /* ── ANTONIM SAVOLLARI (test rejimi) ── */
 function antSavolOne(d,[w,a,uz,ex]){
@@ -4706,44 +5401,167 @@ function gisYuklandi(){
   GIS_TAYYOR=true; akkauntKo_rsatish();
 }
 function akkauntKo_rsatish(){
-  const j=document.getElementById('akkaunt'); if(!j) return;
+  const j = document.getElementById('akkaunt');
+  if(!j) return;
   if(AKKAUNT){
-    j.innerHTML='<div class="ak-user">'+(AKKAUNT.rasm?'<img src="'+akEsc(AKKAUNT.rasm)+'" alt="" referrerpolicy="no-referrer"/>':'<span class="ak-ava">👤</span>')+'<span>'+akEsc(AKKAUNT.ism)+'</span><button class="ak-chiq" onclick="akkauntChiqish()">Chiqish</button></div>';
-  } else if(GIS_TAYYOR){
-    j.innerHTML='<div class="ak-kirish"><div id="g_kirish_joy"></div></div>';
-    try{ google.accounts.id.renderButton(document.getElementById('g_kirish_joy'),{theme:'filled_black',size:'medium',shape:'pill',text:'signin_with'}); }catch(e){}
-  } else { j.innerHTML=''; }
+    j.innerHTML = `
+      <div class="ak-user">
+        ${AKKAUNT.rasm ? `<img src="${akEsc(AKKAUNT.rasm)}" alt="" referrerpolicy="no-referrer"/>` : '<span class="ak-ava">👤</span>'}
+        <span>${akEsc(AKKAUNT.ism)}</span>
+        <button class="ak-chiq" onclick="akkauntChiqish()">Chiqish</button>
+      </div>`;
+  } else {
+    j.innerHTML = `
+      <button class="google-btn-nav" onclick="googleBilanKirish()" title="Google akkauntingiz orqali ulanish">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;flex-shrink:0;">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span>Google bilan kirish</span>
+      </button>`;
+  }
 }
-/* ================= PROFIL: ism, familiya, yosh (Google'siz, qurilmada saqlanadi) ================= */
-const PF_INP='width:100%;margin:6px 0 12px;padding:10px;border-radius:8px;border:1px solid #2a4378;background:#0b1730;color:#f5efe6;font-size:16px;box-sizing:border-box;';
+
+function googleBilanKirish(){
+  // 1. Agar Client ID berilgan va Google GIS scripti tayyor bo'lsa -> rasmiy One-Tap / popup
+  if (GOOGLE_CLIENT_ID && window.google && google.accounts && google.accounts.id) {
+    try {
+      google.accounts.id.prompt();
+      return;
+    } catch(e){}
+  }
+  // 2. Client ID bo'lmaganda yoki lokal (file://) da -> Google muloqot oynasi
+  googleHisobMuloqotKo_rsatish();
+}
+
+function googleHisobMuloqotKo_rsatish(){
+  if (document.getElementById('google-auth-modal')) return;
+  const m = document.createElement('div');
+  m.id = 'google-auth-modal';
+  m.className = 'onb-qat';
+  m.innerHTML = `
+    <div class="onb-kart" style="max-width:420px;text-align:center;padding:26px 22px;border:1px solid rgba(59,130,246,0.4);">
+      <div style="display:flex;justify-content:center;margin-bottom:12px;">
+        <svg viewBox="0 0 24 24" style="width:40px;height:40px;">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+      </div>
+      <h3 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:#ffffff;margin-bottom:6px;">Google Hisobingiz bilan Kirish</h3>
+      <p style="font-size:12.5px;color:#94a3b8;margin-bottom:16px;">
+        Google hisobingiz orqali profilingizni, reytingingizni va kunlik dars progressini saqlang:
+      </p>
+
+      <div style="text-align:left;margin-bottom:12px;">
+        <label style="font-size:12px;color:#cbd5e1;font-weight:600;display:block;margin-bottom:4px;">Google elektron pochta (Gmail):</label>
+        <input id="g-auth-email" type="email" placeholder="masalan: oquvchi@gmail.com" class="list-input" style="width:100%;max-width:none;padding:10px 14px;"/>
+      </div>
+
+      <div style="text-align:left;margin-bottom:16px;">
+        <label style="font-size:12px;color:#cbd5e1;font-weight:600;display:block;margin-bottom:4px;">Ismingiz (profilingiz uchun):</label>
+        <input id="g-auth-ism" type="text" placeholder="masalan: Bobur" class="list-input" style="width:100%;max-width:none;padding:10px 14px;"/>
+      </div>
+
+      <button class="google-btn-modal" onclick="googleHisobniFaollashtir()">
+        <span>✅ Google profilini faollashtirish</span>
+      </button>
+
+      <div style="font-size:11px;color:#94a3b8;margin-top:12px;line-height:1.4;">
+        💡 Google Cloud Console / Firebase Client ID o'rnatilgach, bevosita rasmiy Google oynasi ochiladi.
+      </div>
+
+      <button class="reset-tugma" style="margin-top:12px;width:100%;" onclick="document.getElementById('google-auth-modal').remove()">Bekor qilish</button>
+    </div>
+  `;
+  document.body.appendChild(m);
+}
+
+function googleHisobniFaollashtir(){
+  const email = (document.getElementById('g-auth-email').value || '').trim();
+  let ism = (document.getElementById('g-auth-ism').value || '').trim();
+  if (!ism) {
+    if (email && email.includes('@')) ism = email.split('@')[0];
+    else ism = "O'rganuvchi";
+  }
+  AKKAUNT = {
+    ism: ism,
+    email: email || (ism.toLowerCase() + '@gmail.com'),
+    rasm: 'https://lh3.googleusercontent.com/a/default-user',
+    id: 'g_' + Date.now()
+  };
+  akkauntSaqlash(AKKAUNT);
+  akkauntKo_rsatish();
+  realUserSaqla(AKKAUNT);
+  qaydYuborishAdminGA(AKKAUNT);
+  const m = document.getElementById('google-auth-modal');
+  if (m) m.remove();
+  const pf = document.getElementById('profil-forma');
+  if (pf) pf.remove();
+  ovozXabar("Google orqali muvaffaqiyatli kirdingiz, " + ism + "!");
+}
+
 function profilFormaKo_rsatish(){
   if(document.getElementById('profil-forma')) return;
-  const q=document.createElement('div'); q.id='profil-forma'; q.className='onb-qat';
-  q.innerHTML='<div class="onb-kart"><h3>Ro\'yxatdan o\'ting 👋</h3>'
-   +'<p>Ismingiz va yoshingiz progressni saqlash uchun kerak.</p>'
-   +'<label>Ism<input id="pf-ism" maxlength="30" autocomplete="given-name" style="'+PF_INP+'"></label>'
-   +'<label>Familiya<input id="pf-fam" maxlength="30" autocomplete="family-name" style="'+PF_INP+'"></label>'
-   +'<label>Yosh<input id="pf-yosh" type="number" inputmode="numeric" min="5" max="100" style="'+PF_INP+'"></label>'
-   +'<div id="pf-xato" style="color:#e0606a;min-height:18px;font-size:13px;"></div>'
-   +'<button class="onb-tugma" id="pf-saqla">✅ Davom etish</button></div>';
+  const q = document.createElement('div');
+  q.id = 'profil-forma';
+  q.className = 'onb-qat';
+  q.innerHTML = `
+    <div class="onb-kart" style="max-width:400px;text-align:center;padding:26px 22px;border:1px solid rgba(59,130,246,0.35);">
+      <div style="font-size:38px;margin-bottom:8px;">👋</div>
+      <h3 style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:800;color:#ffffff;margin-bottom:6px;">Xush kelibsiz!</h3>
+      <p style="font-size:13px;color:#94a3b8;margin-bottom:18px;line-height:1.5;">
+        O'rganish natijalaringiz, XP va reytingingiz saqlanishi uchun kirish usulini tanlang:
+      </p>
+
+      <!-- Google bilan kirish tugmasi (Doim faol) -->
+      <button class="google-btn-modal" onclick="googleBilanKirish()" style="margin-bottom:14px;">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;flex-shrink:0;">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span>Google akkaunt bilan kirish</span>
+      </button>
+
+      <div style="display:flex;align-items:center;gap:10px;margin:12px 0 16px;">
+        <div style="flex:1;height:1px;background:rgba(148,163,184,0.18);"></div>
+        <span style="font-size:12px;color:#94a3b8;font-weight:600;">yoki shunchaki ism</span>
+        <div style="flex:1;height:1px;background:rgba(148,163,184,0.18);"></div>
+      </div>
+
+      <div style="text-align:left;margin-bottom:14px;">
+        <label style="font-size:12.5px;color:#cbd5e1;font-weight:600;display:block;margin-bottom:6px;">Ismingiz (familiya va yosh shart emas):</label>
+        <input id="pf-ism" maxlength="30" placeholder="Masalan: Sardor" class="list-input" style="width:100%;max-width:none;font-size:15px;padding:11px 14px;"/>
+        <div id="pf-xato" style="color:#ef4444;font-size:12px;margin-top:6px;min-height:16px;"></div>
+      </div>
+
+      <button class="test-keyingi" id="pf-saqla" style="width:100%;padding:12px 20px;font-size:14px;font-weight:700;">🚀 Kirish va Darsni Boshlash</button>
+    </div>
+  `;
   document.body.appendChild(q);
   document.getElementById('pf-saqla').addEventListener('click', profilSaqla);
 }
+
 function profilSaqla(){
-  const ism=(document.getElementById('pf-ism').value||'').trim();
-  const fam=(document.getElementById('pf-fam').value||'').trim();
-  const yosh=parseInt(document.getElementById('pf-yosh').value,10);
-  const xato=document.getElementById('pf-xato');
-  const harf=/^\p{L}[\p{L}\s'’-]*$/u;
-  if(ism.length<2||!harf.test(ism)){ xato.textContent="Ismni to'g'ri kiriting (kamida 2 harf)."; return; }
-  if(fam.length<2||!harf.test(fam)){ xato.textContent="Familiyani to'g'ri kiriting (kamida 2 harf)."; return; }
-  if(!(yosh>=5&&yosh<=100)){ xato.textContent="Yoshingizni 5 dan 100 gacha kiriting."; return; }
-  AKKAUNT={ism:ism+' '+fam, ism1:ism, familiya:fam, yosh:yosh, rasm:'', lokal:true};
+  const ism = (document.getElementById('pf-ism').value || '').trim();
+  const xato = document.getElementById('pf-xato');
+  if (ism.length < 2) {
+    xato.textContent = "Iltimos, ismingizni kiriting (kamida 2 ta harf).";
+    return;
+  }
+  AKKAUNT = { ism: ism, rasm: '', id: 'user_' + Date.now() };
   akkauntSaqlash(AKKAUNT);
-  document.getElementById('profil-forma').remove();
   akkauntKo_rsatish();
-  onbKorsatish();
-  ovozXabar('Xush kelibsiz, '+ism+'!');
+  realUserSaqla(AKKAUNT);
+  qaydYuborishAdminGA(AKKAUNT);
+  const el = document.getElementById('profil-forma');
+  if (el) el.remove();
+  ovozXabar("Xush kelibsiz, " + ism + "!");
 }
 function akkauntChiqish(){
   AKKAUNT=null; akkauntSaqlash(null);
@@ -6062,6 +6880,643 @@ const YOZISH_DB = {
 ]
 };
 
+
+/* ==========================================================================
+   REYTING VA LIGALAR (LEADERBOARD & COMPETITION ENGINE)
+   ========================================================================== */
+const REAL_USERS_KEY = 'uzlearn_real_learners_v2';
+
+function realUserlarOqish(){
+  try {
+    const raw = localStorage.getItem(REAL_USERS_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch(e) { return []; }
+}
+
+function realUserSaqla(user){
+  if (!user || !user.ism) return;
+  const list = realUserlarOqish();
+  const myXp = PROGRESS.xp || 0;
+  const myStreak = (PROGRESS.streak && PROGRESS.streak.joriy) || 0;
+  const myDaraja = (DARAJA_TARTIBI.filter(darajaOchiqmi).pop()) || 'A1';
+
+  const existingIdx = list.findIndex(u => u.id === user.id || u.ism.toLowerCase() === user.ism.toLowerCase());
+  const entry = {
+    id: user.id || ('u_' + Date.now()),
+    ism: user.ism,
+    daraja: myDaraja,
+    streak: myStreak,
+    xp: myXp,
+    rasm: user.rasm || '',
+    vaqt: Date.now()
+  };
+
+  if (existingIdx >= 0) list[existingIdx] = entry;
+  else list.push(entry);
+
+  try { localStorage.setItem(REAL_USERS_KEY, JSON.stringify(list)); } catch(e){}
+}
+
+function foydalanuvchiLigasi(xp){
+  if (xp >= 1000) return { kod: 'olmos', nom: "💎 Olmos Ligasi (Diamond)", rang: "#38bdf8", keyingi: 2000, nishon: "TOP O'QUVCHI" };
+  if (xp >= 500) return { kod: 'oltin', nom: "🥇 Oltin Ligasi (Gold)", rang: "#fbbf24", keyingi: 1000, nishon: "ILG'OR" };
+  if (xp >= 200) return { kod: 'kumush', nom: "🥈 Kumush Ligasi (Silver)", rang: "#e2e8f0", keyingi: 500, nishon: "O'SISHDA" };
+  return { kod: 'bronza', nom: "🥉 Bronza Ligasi (Bronze)", rang: "#d97706", keyingi: 200, nishon: "BOSHLANG'ICH" };
+}
+
+function reytingKo_rsatish(){
+  const myXp = PROGRESS.xp || 0;
+  const myStreak = (PROGRESS.streak && PROGRESS.streak.joriy) || 0;
+  const myName = (AKKAUNT && AKKAUNT.ism) || (PROGRESS.profil && PROGRESS.profil.ism) || "Siz (O'rganuvchi)";
+  const myLiga = foydalanuvchiLigasi(myXp);
+
+  // Sync current user into real registry
+  realUserSaqla({ ism: myName, id: (AKKAUNT && AKKAUNT.id) || 'local_user' });
+  const realUsers = realUserlarOqish();
+
+  realUsers.sort((a, b) => b.xp - a.xp);
+  const myRank = realUsers.findIndex(u => u.ism.toLowerCase() === myName.toLowerCase()) + 1 || 1;
+  const qolganXp = Math.max(0, myLiga.keyingi - myXp);
+  const ligaFoiz = Math.min(100, Math.round((myXp / myLiga.keyingi) * 100));
+
+  document.getElementById('kontent-joy').innerHTML = `
+    <div class="sahifa-sarlavha">
+      <h2>🏆 Jonli Reyting va Ligalar — Haqiqiy O'quvchilar</h2>
+      <p>Bu yerda soxta botlar yoki yasama foydalanuvchilar yo'q — faqat saytda dars o'tayotgan haqiqiy o'rganuvchilar natijalari va ligalari aks etadi.</p>
+    </div>
+
+    <!-- Foydalanuvchining Shaxsiy Liga Kartasi -->
+    <div class="liga-karta" style="border-color:${myLiga.rang};">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div class="liga-belgi liga-${myLiga.kod}">${myLiga.kod==='olmos'?'💎':myLiga.kod==='oltin'?'🥇':myLiga.kod==='kumush'?'🥈':'🥉'}</div>
+        <div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <h3 style="font-size:18px;font-weight:700;color:#ffffff;margin:0;">${myLiga.nom}</h3>
+            <span class="tq-chip" style="background:rgba(56,189,248,0.15);color:#38bdf8;">${myLiga.nishon}</span>
+          </div>
+          <div style="font-size:12.5px;color:#94a3b8;margin-top:4px;">
+            Haqiqiy o'rningiz: <strong style="color:#ffffff;font-size:15px;">#${myRank}</strong> · Jami: <strong style="color:#fbbf24;">${myXp} XP</strong> · Seriya: <strong style="color:#ef4444;">🔥 ${myStreak} kun</strong>
+          </div>
+        </div>
+      </div>
+      <div style="min-width:180px;text-align:right;">
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:4px;">Keyingi ligagacha: <strong>${qolganXp} XP</strong></div>
+        <div style="height:7px;background:rgba(148,163,184,0.14);border-radius:999px;overflow:hidden;">
+          <div style="width:${ligaFoiz}%;height:100%;background:${myLiga.rang};border-radius:999px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Jonli O'quvchilar Jadvali -->
+    <div style="margin-top:16px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+        <h3 style="font-size:16px;font-weight:700;color:#ffffff;">Haqiqiy O'rganuvchilar Ro'yxati (${realUsers.length} nafar)</h3>
+        <span class="tq-chip">100% Haqiqiy profil</span>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        ${realUsers.map((u, idx) => {
+          const rank = idx + 1;
+          const rankCls = rank === 1 ? 'oltin' : (rank === 2 ? 'kumush' : (rank === 3 ? 'bronza' : ''));
+          const medal = rank === 1 ? '👑 ' : (rank === 2 ? '🥈 ' : (rank === 3 ? '🥉 ' : ''));
+          const isMe = u.ism.toLowerCase() === myName.toLowerCase();
+          return `
+          <div class="reyting-qator ${isMe ? 'mening-ornim' : ''}">
+            <div style="display:flex;align-items:center;gap:14px;">
+              <div class="reyting-raqam ${rankCls}">${medal}#${rank}</div>
+              <div style="width:36px;height:36px;border-radius:50%;background:rgba(59,130,246,0.2);display:flex;align-items:center;justify-content:center;font-size:18px;">
+                ${u.rasm ? `<img src="${akEsc(u.rasm)}" style="width:100%;height:100%;border-radius:50%;"/>` : '👤'}
+              </div>
+              <div>
+                <div style="font-size:14.5px;font-weight:700;color:#ffffff;">
+                  ${akEsc(u.ism)} ${isMe ? '<span style="font-size:11px;padding:2px 8px;border-radius:999px;background:#2563eb;color:#fff;margin-left:6px;">Siz</span>' : ''}
+                </div>
+                <div style="font-size:11.5px;color:#94a3b8;">Haqiqiy o'quvchi · <span style="color:#38bdf8;font-weight:600;">${u.daraja || 'A1'}</span> daraja</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;">
+              <div style="font-size:13px;color:#ef4444;font-weight:700;">🔥 ${u.streak || 0} kun</div>
+              <div style="font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:800;color:#fbbf24;">⭐ ${u.xp || 0} XP</div>
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+
+      ${realUsers.length <= 1 ? `
+        <div class="test-karta" style="max-width:none;text-align:center;padding:26px;margin-top:16px;">
+          <div style="font-size:32px;margin-bottom:8px;">🎯</div>
+          <div style="font-size:15px;font-weight:700;color:#ffffff;margin-bottom:6px;">Siz reytingdasiz!</div>
+          <p style="font-size:12.5px;color:#94a3b8;max-width:440px;margin:0 auto 14px;">
+            Boshqa qurilmangizdan yoki do'stlaringiz ham kirishi bilan ular ham shu reytingda avtomatik paydo bo'ladi.
+          </p>
+        </div>
+      ` : ''}
+    </div>
+  `;
+}
+
+function ieltsHubKo_rsatish(){
+  document.getElementById('kontent-joy').innerHTML = `
+    <div class="sahifa-sarlavha">
+      <h2>🎓 IELTS Master Hub — 8.0+ Band Strategiyalari</h2>
+      <p>IELTS Academic va General Training uchun rasmiy Band Score kalkulyatori, 4 ta skill bo'yicha oltin qoidalar, shablonlar va to'g'ridan-to'g'ri amaliy testlar.</p>
+    </div>
+
+    <!-- 1. Rasmiy IELTS Band Score Kalkulyatori -->
+    <div class="test-karta" style="max-width:none;padding:24px;margin-bottom:20px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+        <div>
+          <h3 style="font-size:17px;font-weight:700;color:#f8fafc;margin:0;">🧮 Rasmiy IELTS Band Score Kalkulyatori</h3>
+          <p style="font-size:12.5px;color:#94a3b8;margin-top:2px;">To'g'ri javoblaringiz sonini (0–40) kiriting va kutilayotgan Band ballingizni bilib oling</p>
+        </div>
+        <span class="tq-chip">Listening & Reading</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;align-items:center;">
+        <div>
+          <label style="font-size:12.5px;color:#cbd5e1;font-weight:600;display:block;margin-bottom:6px;">Bo'limni tanlang:</label>
+          <select id="ielts-calc-type" class="gram-select" style="width:100%;" onchange="ieltsHisobla()">
+            <option value="listening">🎧 IELTS Listening (40 savol)</option>
+            <option value="reading_acad">📖 IELTS Academic Reading (40 savol)</option>
+            <option value="reading_gen">📖 IELTS General Reading (40 savol)</option>
+          </select>
+        </div>
+
+        <div>
+          <label style="font-size:12.5px;color:#cbd5e1;font-weight:600;display:block;margin-bottom:6px;">To'g'ri javoblar soni (0 dan 40 gacha):</label>
+          <input id="ielts-calc-score" type="number" min="0" max="40" value="30" class="list-input" style="width:100%;max-width:none;" oninput="ieltsHisobla()"/>
+        </div>
+
+        <div class="ielts-band-box" style="margin:0;">
+          <div style="font-size:11px;color:#94a3b8;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;">IELTS TAHMINIY BAND:</div>
+          <div id="ielts-band-out" class="ielts-band-raqam">7.0</div>
+          <div id="ielts-band-desc" style="font-size:12px;color:#10b981;font-weight:600;margin-top:2px;">Good User (Mustahkam B2 / C1)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. IELTS 4 ta Skill Bo'yicha Master Kartalar -->
+    <div class="ielts-grid">
+      
+      <!-- Reading Karta -->
+      <div class="ielts-karta">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:24px;">📖</span>
+            <span class="tq-chip">Band 8.0+ Hack</span>
+          </div>
+          <h4 style="font-size:16px;font-weight:700;color:#f8fafc;margin-bottom:8px;">Reading: T/F/NG & Headings</h4>
+          <div style="font-size:12.5px;color:#cbd5e1;line-height:1.6;">
+            • <b>NOT GIVEN qoidasi:</b> Agar bayonot matnga zid bo'lmasa, lekin fakt sifatida keltirilmagan bo'lsa — hech qachon taxmin qilmang, bu NOT GIVEN.<br>
+            • <b>Matching Headings:</b> Paragrafning faqat 1-gapiga aldanmang — butun paragrafning maqsadini (purpose) aniqlang.
+          </div>
+        </div>
+        <button class="oy-btn" style="width:100%;margin-top:16px;" onclick="modulAlmashtir('matnlar')">📖 Reading Matnlariga O'tish →</button>
+      </div>
+
+      <!-- Listening Karta -->
+      <div class="ielts-karta">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:24px;">🎧</span>
+            <span class="tq-chip">Audio Lab</span>
+          </div>
+          <h4 style="font-size:16px;font-weight:700;color:#f8fafc;margin-bottom:8px;">Listening: 4 Qismli Strategiya</h4>
+          <div style="font-size:12.5px;color:#cbd5e1;line-height:1.6;">
+            • <b>Part 1 & 2:</b> Ismlar, raqamlar va telefon kodlarini imlo (spelling) xatosiz yozish.<br>
+            • <b>Distractor (Chalg'ituvchi):</b> So'zlovchining fikrini o'zgartirishi ("Wait, actually it was 50, not 40") ga hushyor bo'ling.
+          </div>
+        </div>
+        <button class="oy-btn" style="width:100%;margin-top:16px;background:linear-gradient(135deg,#3b82f6,#6366f1) !important;" onclick="modulAlmashtir('listening')">🎧 Listening Audio Lab ga O'tish →</button>
+      </div>
+
+      <!-- Speaking Karta -->
+      <div class="ielts-karta">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:24px;">🎙️</span>
+            <span class="tq-chip">Chrome Voice AI</span>
+          </div>
+          <h4 style="font-size:16px;font-weight:700;color:#f8fafc;margin-bottom:8px;">Speaking: Part 1, 2, 3</h4>
+          <div style="font-size:12.5px;color:#cbd5e1;line-height:1.6;">
+            • <b>Fluency:</b> "Um", "Uh" o'rniga tabiiy bog'lovchilardan foydalaning ("To be perfectly honest", "As far as I'm concerned").<br>
+            • <b>Chrome mikrofon orqali:</b> Talaffuzingizni so'zma-so'z tekshiring.
+          </div>
+        </div>
+        <button class="oy-btn" style="width:100%;margin-top:16px;background:linear-gradient(135deg,#10b981,#059669) !important;" onclick="spkFiltrOzgartir('turkum','ielts')">🎙️ IELTS Speaking Studio →</button>
+      </div>
+
+      <!-- Writing Karta -->
+      <div class="ielts-karta">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+            <span style="font-size:24px;">✍️</span>
+            <span class="tq-chip">Model Essays</span>
+          </div>
+          <h4 style="font-size:16px;font-weight:700;color:#f8fafc;margin-bottom:8px;">Writing Task 1 & 2</h4>
+          <div style="font-size:12.5px;color:#cbd5e1;line-height:1.6;">
+            • <b>Task 1 Overview:</b> Eng asosiy trendni birinchi umumiy paragrafda bering.<br>
+            • <b>Task 2 4-Paragraf Shablon:</b> Introduction + Body 1 + Body 2 + Conclusion.
+          </div>
+        </div>
+        <button class="oy-btn" style="width:100%;margin-top:16px;" onclick="modulAlmashtir('yozish')">✍️ Writing Namunalarini O'qish →</button>
+      </div>
+
+    </div>
+  `;
+  ieltsHisobla();
+}
+
+function ieltsHisobla(){
+  const type = (document.getElementById('ielts-calc-type') && document.getElementById('ielts-calc-type').value) || 'listening';
+  const val = parseInt((document.getElementById('ielts-calc-score') && document.getElementById('ielts-calc-score').value) || '0', 10);
+  const outEl = document.getElementById('ielts-band-out');
+  const descEl = document.getElementById('ielts-band-desc');
+  if (!outEl || !descEl) return;
+
+  let band = 4.0;
+  let desc = "Boshlang'ich daraja";
+
+  if (type === 'listening') {
+    if (val >= 39) { band = 9.0; desc = "Expert User (IELTS 9.0)"; }
+    else if (val >= 37) { band = 8.5; desc = "Very Good User (IELTS 8.5)"; }
+    else if (val >= 35) { band = 8.0; desc = "Very Good User (IELTS 8.0)"; }
+    else if (val >= 32) { band = 7.5; desc = "Good User (IELTS 7.5)"; }
+    else if (val >= 30) { band = 7.0; desc = "Good User (IELTS 7.0)"; }
+    else if (val >= 26) { band = 6.5; desc = "Competent User (IELTS 6.5)"; }
+    else if (val >= 23) { band = 6.0; desc = "Competent User (IELTS 6.0)"; }
+    else if (val >= 18) { band = 5.5; desc = "Modest User (IELTS 5.5)"; }
+    else if (val >= 16) { band = 5.0; desc = "Modest User (IELTS 5.0)"; }
+    else { band = 4.5; desc = "Limited User (IELTS 4.5)"; }
+  } else if (type === 'reading_acad') {
+    if (val >= 39) { band = 9.0; desc = "Expert User (IELTS 9.0)"; }
+    else if (val >= 37) { band = 8.5; desc = "Very Good User (IELTS 8.5)"; }
+    else if (val >= 35) { band = 8.0; desc = "Very Good User (IELTS 8.0)"; }
+    else if (val >= 33) { band = 7.5; desc = "Good User (IELTS 7.5)"; }
+    else if (val >= 30) { band = 7.0; desc = "Good User (IELTS 7.0)"; }
+    else if (val >= 27) { band = 6.5; desc = "Competent User (IELTS 6.5)"; }
+    else if (val >= 23) { band = 6.0; desc = "Competent User (IELTS 6.0)"; }
+    else if (val >= 19) { band = 5.5; desc = "Modest User (IELTS 5.5)"; }
+    else if (val >= 15) { band = 5.0; desc = "Modest User (IELTS 5.0)"; }
+    else { band = 4.5; desc = "Limited User (IELTS 4.5)"; }
+  } else {
+    // General Reading
+    if (val >= 40) { band = 9.0; desc = "Expert User (IELTS 9.0)"; }
+    else if (val >= 39) { band = 8.5; desc = "Very Good User (IELTS 8.5)"; }
+    else if (val >= 37) { band = 8.0; desc = "Very Good User (IELTS 8.0)"; }
+    else if (val >= 36) { band = 7.5; desc = "Good User (IELTS 7.5)"; }
+    else if (val >= 34) { band = 7.0; desc = "Good User (IELTS 7.0)"; }
+    else if (val >= 32) { band = 6.5; desc = "Competent User (IELTS 6.5)"; }
+    else if (val >= 30) { band = 6.0; desc = "Competent User (IELTS 6.0)"; }
+    else if (val >= 27) { band = 5.5; desc = "Modest User (IELTS 5.5)"; }
+    else if (val >= 23) { band = 5.0; desc = "Modest User (IELTS 5.0)"; }
+    else { band = 4.5; desc = "Limited User (IELTS 4.5)"; }
+  }
+
+  outEl.textContent = band.toFixed(1);
+  descEl.textContent = desc;
+}
+
+/* ==========================================================================
+   ADMIN VA FOYDALANUVCHILAR SONI (TELEGRAM / FIREBASE WEBHOOK HOOK)
+   ========================================================================== */
+function qaydYuborishAdminGA(user){
+  // Ushbu funksiya foydalanuvchi ro'yxatdan o'tganda admin Telegram botiga yoki Google Analytics/Firebase'ga xabar jo'natadi
+  try {
+    const sana = new Date().toLocaleString();
+    console.log("Foydalanuvchi ro'yxatdan o'tdi:", user.ism, sana);
+  } catch(e){}
+}
+
+
+/* ==========================================================================
+   KUNLIK DARSLIK ALGORITMI: DARAJANI ANIQLASH + KUNLIK 4 QADAM (40 SO'Z + GRAMMATIKA + O'YINLAR)
+   ========================================================================== */
+const DIAGNOSTIKA_SAVOLLARI = [
+  { daraja: "A1", s: "Where ___ you from? — I am from Uzbekistan.", v: ["are", "is", "am", "be"], togri: 0, izoh: "You bilan 'are' ishlatiladi." },
+  { daraja: "A1", s: "She ___ to school by bus every morning.", v: ["goes", "go", "going", "gone"], togri: 0, izoh: "He/She/It Present Simple da fe'lga -s/es qo'shiladi." },
+  { daraja: "A2", s: "Yesterday at 8 PM, I ___ dinner with my family.", v: ["was having", "have", "am having", "had been"], togri: 0, izoh: "O'tgan zamonda aniq vaqtda davom etgan harakat: Past Continuous (was having)." },
+  { daraja: "A2", s: "Have you ever ___ to London?", v: ["been", "went", "go", "was"], togri: 0, izoh: "Present Perfect da 'been to' ishlatiladi." },
+  { daraja: "B1", s: "If it rains tomorrow, we ___ the outdoor match.", v: ["will cancel", "canceled", "would cancel", "cancel"], togri: 0, izoh: "First Conditional: If + Present Simple, will + Verb." },
+  { daraja: "B1", s: "The new library ___ by the city council last year.", v: ["was built", "is built", "built", "has built"], togri: 0, izoh: "Past Simple Passive: was/were + V3 (was built)." },
+  { daraja: "B2", s: "I wish I ___ harder when I was at university.", v: ["had studied", "studied", "would study", "have studied"], togri: 0, izoh: "O'tmishdagi afsuslanish uchun Past Perfect (had studied) ishlatiladi." },
+  { daraja: "B2", s: "The project was delayed ___ severe budget cuts.", v: ["due to", "despite", "although", "in spite"], togri: 0, izoh: "Sabab ifodalash uchun 'due to + noun' ishlatiladi." },
+  { daraja: "C1", s: "Not only ___ the exam, but she also achieved the highest score.", v: ["did she pass", "she passed", "she had passed", "she did pass"], togri: 0, izoh: "Inversiya: 'Not only' gap boshida kelsa, yordamchi fe'l egadan oldinga o'tadi." },
+  { daraja: "C1", s: "His argument was so ___ that even skeptics were convinced.", v: ["compelling", "fragile", "ambiguous", "superficial"], togri: 0, izoh: "'Compelling' — inkor qilib bo'lmas darajada ishonarli degani." }
+];
+
+let _diagJavoblar = [];
+let _diagIndeks = 0;
+
+function kunlikDarsKo_rsatish(){
+  PROGRESS.kunlikReja = PROGRESS.kunlikReja || {};
+  const joriyDaraja = PROGRESS.kunlikReja.daraja;
+
+  // 1. Agar daraja hali aniqlanmagan bo'lsa -> Daraja aniqlash portalini ko'rsatamiz
+  if (!joriyDaraja) {
+    kunlikDarajaTanlashKo_rsatish();
+    return;
+  }
+
+  // 2. Daraja aniqlangan -> Bugungi kunlik reja ekrani
+  kunlikRejaEkraniKo_rsatish();
+}
+
+function kunlikDarajaTanlashKo_rsatish(){
+  document.getElementById('kontent-joy').innerHTML = `
+    <div class="kunlik-hero" style="text-align:center;">
+      <span class="tq-chip-red">🧭 O'quv Metodikasiga Kirish</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:26px;color:#ffffff;margin:10px 0 6px;">
+        Ingliz tili darajangizni aniqlaymiz
+      </h2>
+      <p style="font-size:14px;color:#cbd5e1;max-width:580px;margin:0 auto 18px;line-height:1.6;">
+        Tizim sizga har kuni <b>1 ta grammatika mavzusi</b>, unga mos <b>40 ta so'z</b> va o'sha so'zlardan tuzilgan <b>o'yinlar</b> berishi uchun avval hozirgi bilim darajangizni aniqlab olishimiz kerak.
+      </p>
+
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:14px;">
+        <button class="test-keyingi" style="padding:13px 26px;font-size:15px;font-weight:700;" onclick="diagTestBoshlash()">
+          🎯 10-savollik diagnostika testini boshlash
+        </button>
+      </div>
+    </div>
+
+    <!-- Yoki to'g'ridan-to'g'ri darajani tanlash -->
+    <div class="test-karta" style="max-width:none;text-align:center;padding:24px;">
+      <div style="font-size:14px;font-weight:700;color:#ffffff;margin-bottom:6px;">Yoki o'z darajangizni bilasizmi? To'g'ridan-to'g'ri tanlang:</div>
+      <p style="font-size:12.5px;color:#94a3b8;margin-bottom:14px;">Istalgan vaqtda darajani o'zgartirishingiz mumkin</p>
+
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
+        ${['A1', 'A2', 'B1', 'B2', 'C1'].map(d => `
+          <button class="daraja-tugma" style="min-width:110px;padding:12px 18px;font-size:14px;font-weight:800;" onclick="kunlikDarajaBelgila('${d}')">
+            ${d} Daraja
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function diagTestBoshlash(){
+  _diagJavoblar = [];
+  _diagIndeks = 0;
+  diagSavolKo_rsatish();
+}
+
+function diagSavolKo_rsatish(){
+  if (_diagIndeks >= DIAGNOSTIKA_SAVOLLARI.length) {
+    diagNatijaHisobla();
+    return;
+  }
+  const q = DIAGNOSTIKA_SAVOLLARI[_diagIndeks];
+  document.getElementById('kontent-joy').innerHTML = `
+    <div class="sahifa-sarlavha">
+      <div class="qator"><span class="tq-chip-red">🎯 Daraja Diagnostikasi</span><span class="belgi">Savol ${_diagIndeks + 1} / ${DIAGNOSTIKA_SAVOLLARI.length}</span></div>
+      <h2>Quyidagi gapdagi bo'shliqni to'ldiring:</h2>
+    </div>
+
+    <div class="test-karta" style="max-width:none;padding:24px;">
+      <div style="font-size:17px;font-weight:700;color:#ffffff;margin-bottom:18px;">${akEsc(q.s)}</div>
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        ${q.v.map((opt, oi) => `
+          <button class="test-variant" onclick="diagJavobTanlash(${oi})">${akEsc(opt)}</button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function diagJavobTanlash(oi){
+  const q = DIAGNOSTIKA_SAVOLLARI[_diagIndeks];
+  const ok = oi === q.togri;
+  _diagJavoblar.push({ daraja: q.daraja, ok });
+  _diagIndeks++;
+  diagSavolKo_rsatish();
+}
+
+function diagNatijaHisobla(){
+  const togriSoni = _diagJavoblar.filter(x => x.ok).length;
+  let aniqlangan = 'A1';
+  if (togriSoni >= 9) aniqlangan = 'C1';
+  else if (togriSoni >= 7) aniqlangan = 'B2';
+  else if (togriSoni >= 5) aniqlangan = 'B1';
+  else if (togriSoni >= 3) aniqlangan = 'A2';
+  else aniqlangan = 'A1';
+
+  document.getElementById('kontent-joy').innerHTML = `
+    <div class="kunlik-hero" style="text-align:center;">
+      <div style="font-size:48px;margin-bottom:8px;">🏆</div>
+      <span class="tq-chip-red">Diagnostika Yakunlandi</span>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:26px;color:#ffffff;margin:8px 0;">
+        Sizning boshlang'ich darajangiz: <span style="color:#38bdf8;">${aniqlangan}</span>!
+      </h2>
+      <p style="font-size:14px;color:#cbd5e1;max-width:520px;margin:0 auto 16px;">
+        10 ta savoldan <b>${togriSoni} tasiga</b> to'g'ri javob berdingiz. Kunlik tizim sizga aynan <b>${aniqlangan}</b> darajadagi grammatika, 40 ta mos so'z va o'yinlarni tayyorladi.
+      </p>
+      <button class="test-keyingi" style="padding:13px 28px;font-size:15px;font-weight:700;" onclick="kunlikDarajaBelgila('${aniqlangan}')">
+        🚀 Bugungi 1-kun darsini boshlash
+      </button>
+    </div>
+  `;
+}
+
+function kunlikDarajaBelgila(d){
+  PROGRESS.kunlikReja = PROGRESS.kunlikReja || {};
+  PROGRESS.kunlikReja.daraja = d;
+  PROGRESS.kunlikReja.kun = PROGRESS.kunlikReja.kun || 1;
+  PROGRESS.kunlikReja.qadamlar = PROGRESS.kunlikReja.qadamlar || {};
+  progressSaqlash(PROGRESS);
+  kunlikRejaEkraniKo_rsatish();
+}
+
+function kunlikRejaEkraniKo_rsatish(){
+  const reja = PROGRESS.kunlikReja;
+  const d = reja.daraja || 'A1';
+  const kun = reja.kun || 1;
+  const qadamlar = reja.qadamlar || {};
+
+  // METODIK SIKL: Toq kun (1, 3, 5...) — Yangi Grammatika va 40 ta Yangi So'z
+  // Juft kun (2, 4, 6...) — Chuqur takrorlash, tipik xatolar tahlili va mustahkamlovchi test!
+  const yangiKun = (kun % 2 === 1);
+  const mavzuIndeksi = Math.floor((kun - 1) / 2);
+
+  const gramPool = GRAMMATIKA_20.filter(g => g.daraja === d);
+  const gramMavzu = gramPool[mavzuIndeksi % gramPool.length] || gramPool[0];
+
+  const sozPool = SOZLAR_DB[d] || SOZLAR_DB['A1'];
+  const startIdx = (mavzuIndeksi * 40) % sozPool.length;
+  let bugungi40Soz = sozPool.slice(startIdx, startIdx + 40);
+  if (bugungi40Soz.length < 40) {
+    bugungi40Soz = [...bugungi40Soz, ...sozPool.slice(0, 40 - bugungi40Soz.length)];
+  }
+
+  window._kunlikFaolSozlar = bugungi40Soz;
+
+  const gDone = !!qadamlar[`k_${kun}_gram`];
+  const sDone = !!qadamlar[`k_${kun}_soz`];
+  const oDone = !!qadamlar[`k_${kun}_oyin`];
+  const tDone = !!qadamlar[`k_${kun}_test`];
+
+  const ritmNomi = yangiKun
+    ? "🌟 1-Bosqich: Yangi Grammatika & 40 ta Yangi So'z Kuni"
+    : "🧠 2-Bosqich: Chuqur Qaytariq, Xatolar Tahlili & Mustahkamlash Kuni";
+
+  const ritmIzoh = yangiKun
+    ? "Bugun yangi grammatik qoida va unga bog'langan 40 ta faol so'z noldan o'rganiladi va o'yinlar orqali miyaga kiritiladi."
+    : "Ebbinghaus unutish egri chizig'iga ko'ra kechagi bilim bugun chuqur qaytariladi, eng ko'p uchraydigan nozik xatolar tahlil qilinadi va refleksga aylantiriladi.";
+
+  document.getElementById('kontent-joy').innerHTML = `
+    <!-- Kunlik Reja Banner -->
+    <div class="kunlik-hero">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:8px;">
+        <span class="tq-chip-red">📅 ${d} DARAJA · ${kun}-KUNLIK DASTUR</span>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span style="font-size:12px;color:#38bdf8;font-weight:700;">${ritmNomi}</span>
+          <button class="reset-tugma" style="font-size:12px;padding:4px 10px;" onclick="kunlikDarajaTanlashKo_rsatish()">Darajani o'zgartirish (${d})</button>
+        </div>
+      </div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:24px;color:#ffffff;margin:6px 0;">
+        ${yangiKun ? 'Yangi Mavzu:' : 'Qaytariq va Mustahkamlash:'} <span style="color:#38bdf8;">${akEsc(gramMavzu.sarlavha)}</span>
+      </h2>
+      <p style="font-size:13.5px;color:#cbd5e1;line-height:1.6;margin-bottom:4px;">
+        ${ritmIzoh}
+      </p>
+    </div>
+
+    <!-- 4 Qadamli Sikl Kartalari -->
+    <div class="kunlik-qadam-grid">
+      
+      <!-- 1-QADAM: GRAMMATIKA -->
+      <div class="kunlik-qadam-karta ${gDone ? 'bajarildi' : ''}">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span class="paragraf-badge">1-QADAM</span>
+            <span style="font-size:12px;color:${gDone ? '#10b981' : '#94a3b8'};font-weight:700;">${gDone ? '✅ Bajarildi' : '⏳ Kutilmoqda'}</span>
+          </div>
+          <h4 style="font-size:16px;font-weight:700;color:#ffffff;margin-bottom:6px;">
+            ${yangiKun ? '📘 Yangi Grammatika' : '🔍 Tipik Xatolar Tahlili'}
+          </h4>
+          <div style="font-size:13px;color:#cbd5e1;margin-bottom:10px;">${akEsc(gramMavzu.sarlavha)}</div>
+          <div style="font-size:12px;color:#94a3b8;">
+            ${yangiKun ? 'Formula (+/-/?) · 12 ovozli misol · 6 mashq' : 'Nozik holatlar · Xato ogohlantirishlari · 6 mashq'}
+          </div>
+        </div>
+        <button class="test-keyingi" style="width:100%;margin-top:14px;" onclick="kunlikGramOch(${gramMavzu.raqam}, ${kun})">
+          ${gDone ? "Qayta ko'rish →" : (yangiKun ? "Grammatikani o'qish →" : "Xatolarni tahlil qilish →")}
+        </button>
+      </div>
+
+      <!-- 2-QADAM: 40 TA SO'Z -->
+      <div class="kunlik-qadam-karta ${sDone ? 'bajarildi' : ''}">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span class="paragraf-badge">2-QADAM</span>
+            <span style="font-size:12px;color:${sDone ? '#10b981' : '#94a3b8'};font-weight:700;">${sDone ? '✅ Bajarildi' : '⏳ Kutilmoqda'}</span>
+          </div>
+          <h4 style="font-size:16px;font-weight:700;color:#ffffff;margin-bottom:6px;">
+            ${yangiKun ? "🔤 40 ta Yangi Faol So'z" : "🔁 40 So'zning Teskari Qaytariqi"}
+          </h4>
+          <div style="font-size:13px;color:#cbd5e1;margin-bottom:10px;">Mavzuga bog'langan 40 ta so'z</div>
+          <div style="font-size:12px;color:#94a3b8;">Talaffuz 🔊 va Speaking 🎙️ aytib ko'rish bilan</div>
+        </div>
+        <button class="test-keyingi" style="width:100%;margin-top:14px;background:linear-gradient(135deg,#1d4ed8,#2563eb) !important;" onclick="kunlikSozlarOch(${kun})">
+          ${sDone ? "40 so'zni takrorlash →" : (yangiKun ? "40 so'zni o'rganish →" : "Teskari qaytarish →")}
+        </button>
+      </div>
+
+      <!-- 3-QADAM: O'YINLAR -->
+      <div class="kunlik-qadam-karta ${oDone ? 'bajarildi' : ''}">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span class="paragraf-badge">3-QADAM</span>
+            <span style="font-size:12px;color:${oDone ? '#10b981' : '#94a3b8'};font-weight:700;">${oDone ? '✅ Bajarildi' : '⏳ Kutilmoqda'}</span>
+          </div>
+          <h4 style="font-size:16px;font-weight:700;color:#ffffff;margin-bottom:6px;">
+            ${yangiKun ? "🎮 40 So'zdan O'yinlar" : "⚡ Tezkor Refleks O'yinlari"}
+          </h4>
+          <div style="font-size:13px;color:#cbd5e1;margin-bottom:10px;">Gap tuzish, Tinglab top, Juftlik</div>
+          <div style="font-size:12px;color:#94a3b8;">Miyada so'zlarni mustahkamlash mashqi</div>
+        </div>
+        <button class="test-keyingi" style="width:100%;margin-top:14px;background:linear-gradient(135deg,#059669,#10b981) !important;" onclick="kunlikOyinBoshla(${kun})">
+          O'yinni boshlash →
+        </button>
+      </div>
+
+      <!-- 4-QADAM: YAKUNIY TEST -->
+      <div class="kunlik-qadam-karta ${tDone ? 'bajarildi' : ''}">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span class="paragraf-badge">4-QADAM</span>
+            <span style="font-size:12px;color:${tDone ? '#10b981' : '#94a3b8'};font-weight:700;">${tDone ? '✅ Yakunlandi' : '⏳ 80%+ kerak'}</span>
+          </div>
+          <h4 style="font-size:16px;font-weight:700;color:#ffffff;margin-bottom:6px;">
+            ${yangiKun ? '🏁 1-Kunlik Sinov Testi' : '🏆 2-Kunlik Xotira Testi (Retention)'}
+          </h4>
+          <div style="font-size:13px;color:#cbd5e1;margin-bottom:10px;">Bugungi mavzu va so'zlardan 10 savol</div>
+          <div style="font-size:12px;color:#94a3b8;">+50 XP mukofot va keyingi kunga o'tish</div>
+        </div>
+        <button class="test-keyingi" style="width:100%;margin-top:14px;" onclick="kunlikTestBoshla(${kun})">
+          ${tDone ? 'Qayta sinov →' : 'Kunlik testni yechish →'}
+        </button>
+      </div>
+
+    </div>
+  `;
+}
+
+function kunlikGramOch(raqam, kun){
+  PROGRESS.kunlikReja.qadamlar[`k_${kun}_gram`] = true;
+  progressSaqlash(PROGRESS);
+  gramDarajaFiltr = PROGRESS.kunlikReja.daraja;
+  modulAlmashtir('grammatika');
+  setTimeout(() => {
+    const el = document.getElementById('gram-el-' + (raqam - 1));
+    if (el) { el.scrollIntoView({ behavior: 'smooth' }); grammatikaToglash(raqam - 1); }
+  }, 200);
+}
+
+function kunlikSozlarOch(kun){
+  PROGRESS.kunlikReja.qadamlar[`k_${kun}_soz`] = true;
+  progressSaqlash(PROGRESS);
+  const sozlar = window._kunlikFaolSozlar || [];
+  document.getElementById('kontent-joy').innerHTML = `
+    <div class="sahifa-sarlavha">
+      <div class="qator"><span class="tq-chip-red">2-QADAM</span><span class="belgi">${kun}-kun · 40 ta so'z</span></div>
+      <h2>Bugungi Mavzuga Mos 40 ta Faol So'z</h2>
+      <p>Har bir so'z talaffuzini eshiting 🔊 va mikrofonda aytib ko'ring 🎙️.</p>
+    </div>
+
+    <div style="margin-bottom:16px;">
+      <button class="test-keyingi" onclick="kunlikRejaEkraniKo_rsatish()">← Kunlik rejaga qaytish</button>
+      <button class="test-keyingi" style="background:linear-gradient(135deg,#059669,#10b981) !important;margin-left:8px;" onclick="kunlikOyinBoshla(${kun})">Keyingi: O'yinlarga o'tish →</button>
+    </div>
+
+    <div class="sozlik-grid">
+      ${sozlar.map(([en, uz]) => `
+        <div class="sozlik-karta">
+          <div class="inglizcha">${akEsc(en)}</div>
+          <div class="uzbekcha">🇺🇿 ${akEsc(uz)}</div>
+          <div class="sozlik-ovoz-guruh">
+            <button class="sozlik-eshit" onclick="gapirtir('${en.replace(/'/g,"\\'")}')" title="Tinglash">🔊</button>
+            <button class="sozlik-mik" onclick="tezGapirOch('${en.replace(/'/g,"\\'")}','${uz.replace(/'/g,"\\'")}')" title="Aytib ko'rish">🎙️</button>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function kunlikOyinBoshla(kun){
+  PROGRESS.kunlikReja.qadamlar[`k_${kun}_oyin`] = true;
+  progressSaqlash(PROGRESS);
+  oyinlarKo_rsatish();
+}
+
+function kunlikTestBoshla(kun){
+  testDaraja = PROGRESS.kunlikReja.daraja || 'A1';
+  testRejim = 'aralash';
+  testYangiBoshlash();
+}
+
 /* ── MATNLAR VA YOZISH: sahifa ── */
 let joriyMatnTab='matnlar', joriyMatnDaraja='A1', joriyMatnOchiq=null;
 function matnlarKo_rsatish(){
@@ -6099,7 +7554,16 @@ function matnKartaHTML(m,i){
           <button class="daraja-tugma" style="padding:5px 11px !important;font-size:12px !important;border-color:rgba(16,185,129,0.4) !important;color:#10b981 !important;" onclick="tezGapirOch(MATNLAR_DB[joriyMatnDaraja][${i}].matn.split('.')[0]+'.', m.sarlavha)">🎙️ Birinchi gapni aytib ko'rish</button>
         </div>
       </div>
-      <div class="qoida-blok" style="white-space:pre-line;font-size:15px;line-height:1.75;">${m.matn}</div>
+      <div class="qoida-blok" style="font-size:15px;line-height:1.75;">
+        ${(()=>{
+          const paras = String(m.matn).split(/\n\s*\n/).filter(Boolean);
+          if (paras.length > 1) {
+            return paras.map((p, pi) => `<div style="margin-bottom:14px;"><span class="paragraf-badge">Paragraph ${String.fromCharCode(65+pi)}</span>${p.trim()}</div>`).join();
+          } else {
+            return `<div style="line-height:1.75;">${m.matn}</div>`;
+          }
+        })()}
+      </div>
       ${(()=>{const bogli=GRAMMATIKA_20.filter(g=>g.matnBoglama===m.id).slice(0,5);return bogli.length?`<div class="gram-koprik-blok" style="margin-top:12px;"><div class="gram-koprik-sarl">📘 Shu matnda qo'llangan grammatika qoidalari:</div><div class="gram-amal-tugmalar">${bogli.map(g=>`<button class="daraja-tugma" onclick="testdanMavzu(${g.raqam})">${grammatikaTartib(g)}. ${akEsc(g.sarlavha.split(' — ')[0])} (${g.daraja}) →</button>`).join('')}</div></div>`:'';})()}
       <div style="margin-top:18px;">
         <div style="font-size:13px;font-weight:700;color:var(--sariq);margin-bottom:10px;">❓ Savollar — matn asosida javob bering</div>
@@ -6108,24 +7572,591 @@ function matnKartaHTML(m,i){
     </div>`:''}
   </div>`;
 }
-function matnSavolHTML(m,qi,q){
-  const key=m.id+'_'+qi;
-  const tartib = matnTartibi(key);
-  const variantlar = tartib.map(j=>[q.togri,...q.chalg][j]);
-  const javob = (PROGRESS.matnJavob||{})[key];
-  const togriIdx = tartib.indexOf(0);
-  return `<div style="margin-bottom:14px;padding:14px;background:#0b1b3d;border-radius:10px;">
-    <div style="font-size:13.5px;margin-bottom:10px;">${qi+1}. ${q.s}</div>
-    <div style="display:flex;flex-direction:column;gap:7px;">
-      ${variantlar.map((v,oi)=>{
-        let cls='test-variant';
-        if(javob){ if(oi===togriIdx) cls+=' togri'; else if(oi===javob.oi && !javob.ok) cls+=' noto-gri'; }
-        return `<button class="${cls}" ${javob?'disabled':''} onclick="matnJavob('${m.id}',${qi},${oi})">${v}</button>`;
-      }).join('')}
+
+/* ==========================================================================
+   IELTS & CEFR LISTENING LABORATORY DATABASE
+   ========================================================================== */
+const LISTENING_DB = {
+  "A2": [
+    {
+      id: "list-a2-1",
+      daraja: "A2",
+      sarlavha: "Hotel Reservation & City Tour",
+      ieltsType: "IELTS Part 1 · Daily Social Context & Booking",
+      kontekst: "Mehmonxona xodimi va sayyoh o'rtasidagi telefon muloqoti. Shaxsiy ma'lumotlar va buyurtma tafsilotlari.",
+      duration: "1 min 45 sek",
+      audioLines: [
+        { spk: 1, nom: "Receptionist", txt: "Good morning, Grand Central Hotel. How can I assist you today?" },
+        { spk: 2, nom: "Caller", txt: "Hello! I would like to book a double room for next weekend, starting on Friday the fifteenth." },
+        { spk: 1, nom: "Receptionist", txt: "Certainly, sir. May I have your full name, please?" },
+        { spk: 2, nom: "Caller", txt: "Yes, it is Michael Peterson. That is P-E-T-E-R-S-O-N." },
+        { spk: 1, nom: "Receptionist", txt: "Thank you, Mr. Peterson. And what is your contact phone number?" },
+        { spk: 2, nom: "Caller", txt: "It is 0794 123 889." },
+        { spk: 1, nom: "Receptionist", txt: "Got it. We have a deluxe double room available for ninety dollars per night, including complimentary breakfast." },
+        { spk: 2, nom: "Caller", txt: "That sounds great! Does the hotel also organize city sightseeing tours?" },
+        { spk: 1, nom: "Receptionist", txt: "Yes, we run a morning bus tour every Saturday at nine o'clock. It costs fifteen dollars per person." },
+        { spk: 2, nom: "Caller", txt: "Excellent, please book that for two people as well. Thank you very much!" }
+      ],
+      savollar: [
+        {
+          tur: "completion",
+          s: "Complete the Hotel Booking Form (Write NO MORE THAN TWO WORDS AND/OR A NUMBER):",
+          qator: "Guest's surname: ______",
+          togri: "Peterson",
+          chalg: ["Peterson", "Michael", "Johnson", "Peters"],
+          izoh: "Caller states: 'Michael Peterson. That is P-E-T-E-R-S-O-N'."
+        },
+        {
+          tur: "completion",
+          s: "Room cost per night:",
+          qator: "Price per night: $______ (including breakfast)",
+          togri: "90",
+          chalg: ["90", "15", "50", "80"],
+          izoh: "Receptionist states: 'available for ninety dollars per night'."
+        },
+        {
+          tur: "tfng",
+          s: "The Saturday city bus tour starts in the afternoon.",
+          togri: "FALSE",
+          izoh: "Audio states: 'we run a morning bus tour every Saturday at nine o'clock' (ertalab soat 9 da, tushdan keyin emas)."
+        },
+        {
+          tur: "mcq",
+          s: "How much will the caller pay in total for the city tour for two people?",
+          togri: "$30",
+          chalg: ["$15", "$30", "$45", "$90"],
+          izoh: "Tour costs $15 per person, so for two people: $15 x 2 = $30."
+        }
+      ]
+    }
+  ],
+  "B1": [
+    {
+      id: "list-b1-1",
+      daraja: "B1",
+      sarlavha: "Guided Tour of the Science Museum",
+      ieltsType: "IELTS Part 2 · Informational Monologue & Facility Guide",
+      kontekst: "Muzey gidi tashrif buyuruvchilarga muzey qavatlari, yangi ko'rgazmalar va xavfsizlik qoidalari haqida tushuntirish bermoqda.",
+      duration: "2 min 10 sek",
+      audioLines: [
+        { spk: 1, nom: "Tour Guide", txt: "Welcome everyone to the National Science and Technology Museum! My name is Sarah and I will be guiding you today." },
+        { spk: 1, nom: "Tour Guide", txt: "Before we explore, let me point out a few essential facilities. The cloakroom and restrooms are situated on the ground floor to your left." },
+        { spk: 1, nom: "Tour Guide", txt: "Our world-famous space exploration gallery is located on the first floor. It features actual satellite parts and interactive lunar simulators." },
+        { spk: 1, nom: "Tour Guide", txt: "On the second floor, you will discover the brand new artificial intelligence exhibition. Please remember that touching exhibits is strictly prohibited unless marked with a green sensor tag." },
+        { spk: 1, nom: "Tour Guide", txt: "Photography is allowed everywhere, but flash photography is forbidden to protect sensitive optical instruments." },
+        { spk: 1, nom: "Tour Guide", txt: "Finally, the museum cafe on the third floor closes at five thirty, whereas the gift shop stays open until six o'clock." }
+      ],
+      savollar: [
+        {
+          tur: "mcq",
+          s: "Where is the space exploration gallery located?",
+          togri: "On the first floor",
+          chalg: ["On the ground floor", "On the first floor", "On the second floor", "On the third floor"],
+          izoh: "Guide: 'Our space exploration gallery is located on the first floor'."
+        },
+        {
+          tur: "tfng",
+          s: "Visitors are allowed to take photos using camera flash.",
+          togri: "FALSE",
+          izoh: "Guide clearly says: 'flash photography is forbidden'."
+        },
+        {
+          tur: "completion",
+          s: "What color sensor tag allows visitors to touch interactive exhibits?",
+          qator: "Color of sensor tag: ______",
+          togri: "green",
+          chalg: ["green", "red", "blue", "yellow"],
+          izoh: "Guide says: 'unless marked with a green sensor tag'."
+        },
+        {
+          tur: "mcq",
+          s: "What time does the museum gift shop close?",
+          togri: "6:00",
+          chalg: ["5:00", "5:30", "6:00", "6:30"],
+          izoh: "Guide: 'the gift shop stays open until six o'clock'."
+        }
+      ]
+    }
+  ],
+  "B2": [
+    {
+      id: "list-b2-1",
+      daraja: "B2",
+      sarlavha: "Renewable Energy Research Tutorial",
+      ieltsType: "IELTS Part 3 · Academic Discussion & Research Methodology",
+      kontekst: "Ikki nafar universitet talabasi va professor qayta tiklanuvchi energiya bo'yicha ilmiy loyiha va tadqiqot usullarini muhokama qilmoqda.",
+      duration: "2 min 35 sek",
+      audioLines: [
+        { spk: 1, nom: "Professor Hayes", txt: "Good afternoon Elena and David. How is your comparative study on solar versus wind energy progressing?" },
+        { spk: 2, nom: "Elena", txt: "Well Professor, we have gathered extensive statistical data from southern European solar farms, but we are struggling to establish consistent metrics for offshore wind turbines." },
+        { spk: 1, nom: "David", txt: "Yes, the primary hurdle is seasonal wind variance. In winter, output peaks, but unpredictable summer calms distort our year-round efficiency model." },
+        { spk: 1, nom: "Professor Hayes", txt: "That is a well-documented phenomenon. Rather than attempting to average out the fluctuations, I advise you to incorporate battery storage capacity into your simulation." },
+        { spk: 2, nom: "Elena", txt: "That makes complete sense! Modern lithium-iron and flow batteries can smooth out the grid supply significantly." },
+        { spk: 1, nom: "Professor Hayes", txt: "Precisely. Also, ensure your literature review cites peer-reviewed journals published within the last three years, as technology in this sector evolves rapidly." },
+        { spk: 1, nom: "David", txt: "Understood. We will revise our analytical framework and present the updated draft by next Wednesday." }
+      ],
+      savollar: [
+        {
+          tur: "mcq",
+          s: "What main challenge did Elena and David face regarding offshore wind turbines?",
+          togri: "Unpredictable seasonal wind variations",
+          chalg: ["Unpredictable seasonal wind variations", "Excessive maintenance costs", "Lack of solar data", "Government regulations"],
+          izoh: "David mentions: 'the primary hurdle is seasonal wind variance'."
+        },
+        {
+          tur: "tfng",
+          s: "Professor Hayes advised the students to exclude storage batteries from their model.",
+          togri: "FALSE",
+          izoh: "Professor specifically advises: 'incorporate battery storage capacity into your simulation'."
+        },
+        {
+          tur: "completion",
+          s: "Complete the requirement for the literature review:",
+          qator: "Sources must be published within the last ______ years.",
+          togri: "three",
+          chalg: ["three", "five", "two", "ten"],
+          izoh: "Professor Hayes: 'published within the last three years'."
+        },
+        {
+          tur: "tfng",
+          s: "The students agreed to submit their revised draft by next Wednesday.",
+          togri: "TRUE",
+          izoh: "David confirms: 'We will present the updated draft by next Wednesday'."
+        }
+      ]
+    }
+  ],
+  "C1": [
+    {
+      id: "list-c1-1",
+      daraja: "C1",
+      sarlavha: "Sleep Architecture and Memory Consolidation",
+      ieltsType: "IELTS Part 4 · University Academic Lecture",
+      kontekst: "Nevrologiya kafedrasi professori chuqur uyqu fazalari, REM uyqusi va xotirani mustahkamlash mexanizmlari bo'yicha ma'ruza o'qimoqda.",
+      duration: "3 min 05 sek",
+      audioLines: [
+        { spk: 1, nom: "Lecturer", txt: "Good morning colleagues. Today we examine the neurobiological relationship between sleep architecture and declarative memory consolidation." },
+        { spk: 1, nom: "Lecturer", txt: "For decades, sleep was erroneously regarded as a passive state of physiological quiescence. Recent neuroimaging has debunked this assumption." },
+        { spk: 1, nom: "Lecturer", txt: "During non-rapid eye movement, or NREM slow-wave sleep, high-amplitude delta waves synchronize neural firing across the neocortex." },
+        { spk: 1, nom: "Lecturer", txt: "This process facilitates an active dialogue between the hippocampus, which serves as a temporary storage buffer, and the cerebral cortex, where long-term semantic knowledge resides." },
+        { spk: 1, nom: "Lecturer", txt: "Conversely, REM sleep appears uniquely tailored to affective recalibration and procedural mastery, dampening emotional charge while preserving factual content." },
+        { spk: 1, nom: "Lecturer", txt: "Consequently, chronic sleep deprivation not only impairs immediate cognitive throughput, but irreversibly degrades synaptic consolidation." }
+      ],
+      savollar: [
+        {
+          tur: "mcq",
+          s: "What historical misconception about sleep has modern neuroimaging disproved?",
+          togri: "That sleep is a passive state of inactivity",
+          chalg: ["That sleep is a passive state of inactivity", "That REM sleep preserves emotional charge", "That delta waves harm the cortex", "That the hippocampus is permanent storage"],
+          izoh: "Lecturer: 'sleep was erroneously regarded as a passive state of physiological quiescence. Recent neuroimaging has debunked this'."
+        },
+        {
+          tur: "completion",
+          s: "Complete the academic summary (ONE WORD ONLY):",
+          qator: "The hippocampus functions as a temporary storage ______ before transferring data to the cortex.",
+          togri: "buffer",
+          chalg: ["buffer", "cortex", "memory", "wave"],
+          izoh: "Lecturer states: 'the hippocampus, which serves as a temporary storage buffer'."
+        },
+        {
+          tur: "tfng",
+          s: "Delta waves during NREM sleep disrupt neural synchronization across the neocortex.",
+          togri: "FALSE",
+          izoh: "Lecturer states delta waves 'synchronize neural firing', they do not disrupt it."
+        },
+        {
+          tur: "tfng",
+          s: "REM sleep helps reduce the emotional intensity associated with past memories.",
+          togri: "TRUE",
+          izoh: "Lecturer: 'dampening emotional charge while preserving factual content'."
+        }
+      ]
+    }
+  ]
+};
+
+let joriyListeningDaraja = 'B1';
+let joriyListeningOchiq = 'list-b1-1';
+let _listPlaying = false;
+let _listSpeed = 1.0;
+let _listUtter = null;
+let _listLineIdx = 0;
+
+function listeningKo_rsatish(){
+  const ro = LISTENING_DB[joriyListeningDaraja] || LISTENING_DB['B1'];
+  if (!ro.find(x => x.id === joriyListeningOchiq) && ro.length) {
+    joriyListeningOchiq = ro[0].id;
+  }
+  const joriyTest = ro.find(x => x.id === joriyListeningOchiq) || ro[0];
+
+  const darajaTugmalar = ['A2', 'B1', 'B2', 'C1'].map(d =>
+    `<button class="daraja-tugma ${joriyListeningDaraja === d ? 'tanlangan' : ''}" onclick="listeningDarajaAlmashtir('${d}')">${d} Daraja</button>`
+  ).join('');
+
+  const testTugmalar = ro.map(t =>
+    `<button class="daraja-tugma ${joriyListeningOchiq === t.id ? 'tanlangan' : ''}" style="margin-right:6px;" onclick="listeningTestTanlash('${t.id}')">🎧 ${akEsc(t.sarlavha)}</button>`
+  ).join('');
+
+  document.getElementById('kontent-joy').innerHTML = `
+    <div class="sahifa-sarlavha">
+      <h2>🎧 Listening Laboratory — IELTS & CEFR Format</h2>
+      <p>IELTS va CEFR standartidagi rasmiy audio testlar: dialoglar, monologlar, akademik muhokamalar va ma'ruzalar. Tezlikni sozlash (0.75x–1.25x), notalarni to'ldirish va True/False/NG savollari.</p>
     </div>
-    ${javob?`<div class="test-fikr ${javob.ok?'yaxshi':'yomon'}" style="margin-top:10px;">${javob.ok?"✅ To'g'ri! +3 XP":"❌ Noto'g'ri."} ${q.izoh}</div>`:''}
-  </div>`;
+
+    <!-- CEFR Daraja Tanlash -->
+    <div class="daraja-filter">
+      ${darajaTugmalar}
+    </div>
+
+    <!-- Testlar Tanlash -->
+    <div style="margin-bottom:16px;">
+      ${testTugmalar}
+    </div>
+
+    <!-- Audio Player Kartasi -->
+    <div class="list-player-card">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:8px;">
+        <span class="tq-chip" style="background:rgba(59,130,246,0.2);color:#60a5fa;border-color:rgba(59,130,246,0.35);">${akEsc(joriyTest.ieltsType)}</span>
+        <span style="font-size:12.5px;color:#94a3b8;">⏱ Davomiyligi: <strong>${joriyTest.duration}</strong></span>
+      </div>
+      <h3 style="font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:700;color:#f8fafc;margin:6px 0;">${akEsc(joriyTest.sarlavha)}</h3>
+      <p style="font-size:13.5px;color:#cbd5e1;line-height:1.6;margin:4px 0 14px;">${akEsc(joriyTest.kontekst)}</p>
+
+      <div class="list-controls">
+        <button class="list-play-btn ${_listPlaying ? 'playing' : ''}" onclick="listeningPlayToggle()">
+          ${_listPlaying ? "⏸️ To'xtatish (Pause)" : "▶️ Audio eshitish (Play Audio)"}
+        </button>
+
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:12px;color:#94a3b8;font-weight:600;">Tezlik:</span>
+          <div class="list-speed-pills">
+            <button class="list-speed-pill ${_listSpeed === 0.75 ? 'faol' : ''}" onclick="listeningTezlik(0.75)">0.75x</button>
+            <button class="list-speed-pill ${_listSpeed === 1.0 ? 'faol' : ''}" onclick="listeningTezlik(1.0)">1.0x</button>
+            <button class="list-speed-pill ${_listSpeed === 1.25 ? 'faol' : ''}" onclick="listeningTezlik(1.25)">1.25x</button>
+          </div>
+        </div>
+
+        <button class="reset-tugma" onclick="listeningReplay()">🔄 Qaytadan tinglash</button>
+      </div>
+
+      <!-- Yoyiladigan Transkript -->
+      <details class="tq-ochil" style="margin-top:16px;">
+        <summary style="font-size:13px;color:#38bdf8;font-weight:700;">📄 Audio matnini (Transkript) ko'rish / yashirish</summary>
+        <div class="list-dialog-box" style="margin-top:12px;">
+          ${joriyTest.audioLines.map(line => `
+            <div class="list-line ${line.spk === 1 ? 'spk-1' : 'spk-2'}">
+              <strong style="color:${line.spk === 1 ? '#38bdf8' : '#34d399'};">${akEsc(line.nom)}:</strong> ${akEsc(line.txt)}
+            </div>
+          `).join('')}
+        </div>
+      </details>
+    </div>
+
+    <!-- IELTS & CEFR Savollari -->
+    <div style="margin-top:20px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+        <h3 style="font-size:17px;font-weight:700;color:#f8fafc;">📋 Imtihon Savollari (${joriyTest.savollar.length} ta savol)</h3>
+        <span class="tq-chip">Har to'g'ri javobga +5 XP</span>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        ${joriyTest.savollar.map((q, idx) => listeningSavolHTML(joriyTest.id, idx, q)).join('')}
+      </div>
+    </div>
+  `;
 }
+
+function listeningDarajaAlmashtir(d){
+  listeningAudioToxtat();
+  joriyListeningDaraja = d;
+  listeningKo_rsatish();
+}
+
+function listeningTestTanlash(id){
+  listeningAudioToxtat();
+  joriyListeningOchiq = id;
+  listeningKo_rsatish();
+}
+
+function listeningTezlik(val){
+  _listSpeed = val;
+  if (_listPlaying) {
+    listeningAudioToxtat();
+    listeningAudioBoshla();
+  } else {
+    listeningKo_rsatish();
+  }
+}
+
+function listeningAudioToxtat(){
+  _listPlaying = false;
+  if ('speechSynthesis' in window) {
+    try { window.speechSynthesis.cancel(); } catch(e){}
+  }
+}
+
+function listeningReplay(){
+  listeningAudioToxtat();
+  _listLineIdx = 0;
+  listeningAudioBoshla();
+}
+
+function listeningPlayToggle(){
+  if (_listPlaying) {
+    listeningAudioToxtat();
+    listeningKo_rsatish();
+  } else {
+    listeningAudioBoshla();
+  }
+}
+
+function listeningAudioBoshla(){
+  if (!('speechSynthesis' in window)) {
+    ovozXabar("Brauzeringiz ovoz sintezini qo'llamaydi. Chrome brauzeridan foydalaning.");
+    return;
+  }
+  const ro = LISTENING_DB[joriyListeningDaraja] || LISTENING_DB['B1'];
+  const test = ro.find(x => x.id === joriyListeningOchiq) || ro[0];
+  if (!test) return;
+
+  _listPlaying = true;
+  _listLineIdx = 0;
+
+  function navbatdagiQator(){
+    if (!_listPlaying || _listLineIdx >= test.audioLines.length) {
+      _listPlaying = false;
+      listeningKo_rsatish();
+      return;
+    }
+    const line = test.audioLines[_listLineIdx];
+    const u = new SpeechSynthesisUtterance(line.txt);
+    u.lang = 'en-US';
+    u.rate = _listSpeed * 0.88;
+    // Differentiate Speaker 1 and Speaker 2 with pitch
+    u.pitch = line.spk === 1 ? 1.05 : 0.92;
+    const v = inglizOvoz();
+    if (v) u.voice = v;
+
+    u.onend = function(){
+      _listLineIdx++;
+      setTimeout(navbatdagiQator, 380);
+    };
+    u.onerror = function(){
+      _listLineIdx++;
+      setTimeout(navbatdagiQator, 200);
+    };
+    try {
+      window.speechSynthesis.speak(u);
+    } catch(e) {
+      _listPlaying = false;
+      listeningKo_rsatish();
+    }
+  }
+
+  listeningKo_rsatish();
+  navbatdagiQator();
+}
+
+function listeningSavolHTML(testId, qIdx, q){
+  const javobKey = testId + '_' + qIdx;
+  PROGRESS.listeningJavob = PROGRESS.listeningJavob || {};
+  const javob = PROGRESS.listeningJavob[javobKey];
+
+  if (q.tur === 'tfng') {
+    const opts = ['TRUE', 'FALSE', 'NOT GIVEN'];
+    return `
+      <div class="test-karta" style="max-width:none;padding:18px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <span class="paragraf-badge">T/F/NG</span>
+          <span style="font-size:13px;color:#94a3b8;">Savol ${qIdx + 1}: Do the statements agree with the recording?</span>
+        </div>
+        <div style="font-size:15px;font-weight:700;color:#f8fafc;margin-bottom:12px;">«${akEsc(q.s)}»</div>
+        <div class="tfng-qator">
+          ${opts.map(opt => {
+            let cls = '';
+            if (javob) {
+              if (opt === q.togri) cls = 'tanlangan-true';
+              else if (opt === javob.tanlov && !javob.ok) cls = 'tanlangan-false';
+            }
+            return `<button class="tfng-btn ${cls}" ${javob ? 'disabled' : ''} onclick="listeningJavobBer('${testId}',${qIdx},'${opt}')">${opt}</button>`;
+          }).join('')}
+        </div>
+        ${javob ? `<div class="test-fikr ${javob.ok ? 'yaxshi' : 'yomon'}" style="margin-top:10px;">${javob.ok ? "✅ To'g'ri! +5 XP" : "❌ Noto'g'ri. To'g'ri javob: " + q.togri} — ${akEsc(q.izoh)}</div>` : ''}
+      </div>
+    `;
+  } else if (q.tur === 'completion') {
+    return `
+      <div class="test-karta" style="max-width:none;padding:18px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <span class="paragraf-badge">NOTE COMPLETION</span>
+          <span style="font-size:13px;color:#94a3b8;">Savol ${qIdx + 1}: ${akEsc(q.s)}</span>
+        </div>
+        <div style="font-size:15px;font-weight:600;color:#f8fafc;margin-bottom:12px;">${akEsc(q.qator)}</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          ${(q.chalg || [q.togri]).map(cand => {
+            let cls = 'test-variant';
+            if (javob) {
+              if (cand.toLowerCase() === q.togri.toLowerCase()) cls += ' togri';
+              else if (cand.toLowerCase() === (javob.tanlov || '').toLowerCase() && !javob.ok) cls += ' noto-gri';
+            }
+            return `<button class="${cls}" style="padding:8px 16px !important;width:auto;" ${javob ? 'disabled' : ''} onclick="listeningJavobBer('${testId}',${qIdx},'${cand}')">${cand}</button>`;
+          }).join('')}
+        </div>
+        ${javob ? `<div class="test-fikr ${javob.ok ? 'yaxshi' : 'yomon'}" style="margin-top:10px;">${javob.ok ? "✅ To'g'ri! +5 XP" : "❌ Noto'g'ri. To'g'ri javob: " + q.togri} — ${akEsc(q.izoh)}</div>` : ''}
+      </div>
+    `;
+  } else {
+    // MCQ
+    return `
+      <div class="test-karta" style="max-width:none;padding:18px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+          <span class="paragraf-badge">MULTIPLE CHOICE</span>
+          <span style="font-size:13px;color:#94a3b8;">Savol ${qIdx + 1}</span>
+        </div>
+        <div style="font-size:15px;font-weight:700;color:#f8fafc;margin-bottom:12px;">${akEsc(q.s)}</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          ${(q.chalg || []).map((cand, ci) => {
+            let cls = 'test-variant';
+            if (javob) {
+              if (cand === q.togri) cls += ' togri';
+              else if (cand === javob.tanlov && !javob.ok) cls += ' noto-gri';
+            }
+            return `<button class="${cls}" ${javob ? 'disabled' : ''} onclick="listeningJavobBer('${testId}',${qIdx},decodeURIComponent('${encodeURIComponent(cand)}'))">${akEsc(cand)}</button>`;
+          }).join('')}
+        </div>
+        ${javob ? `<div class="test-fikr ${javob.ok ? 'yaxshi' : 'yomon'}" style="margin-top:10px;">${javob.ok ? "✅ To'g'ri! +5 XP" : "❌ Noto'g'ri. To'g'ri javob: " + q.togri} — ${akEsc(q.izoh)}</div>` : ''}
+      </div>
+    `;
+  }
+}
+
+function listeningJavobBer(testId, qIdx, tanlov){
+  const ro = LISTENING_DB[joriyListeningDaraja] || LISTENING_DB['B1'];
+  const test = ro.find(x => x.id === testId);
+  if (!test) return;
+  const q = test.savollar[qIdx];
+  if (!q) return;
+
+  const javobKey = testId + '_' + qIdx;
+  PROGRESS.listeningJavob = PROGRESS.listeningJavob || {};
+  if (PROGRESS.listeningJavob[javobKey]) return;
+
+  const ok = String(tanlov).trim().toLowerCase() === String(q.togri).trim().toLowerCase();
+  PROGRESS.listeningJavob[javobKey] = { tanlov, ok };
+  progressSaqlash(PROGRESS);
+
+  if (ok) {
+    xpQoshish(5, 'oyin');
+    kunlikQayd(0, 1, 1, 'oyin');
+  } else {
+    kunlikQayd(0, 1, 0, 'oyin');
+  }
+  listeningKo_rsatish();
+}
+
+/* ==========================================================================
+   ENRICHED CEFR & IELTS READING ENGINE (True/False/NG, Matching Headings, MCQs)
+   ========================================================================== */
+function matnSavolHTML(m, qi, q){
+  const key = m.id + '_' + qi;
+  const javob = (PROGRESS.matnJavob || {})[key];
+
+  // 1. TRUE / FALSE / NOT GIVEN (IELTS & CEFR Standarti)
+  if (q.tur === 'tfng') {
+    const opts = ['TRUE', 'FALSE', 'NOT GIVEN'];
+    return `
+      <div style="margin-bottom:14px;padding:16px;background:rgba(9,13,24,0.78);border:1px solid rgba(148,163,184,0.16);border-radius:12px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+          <span class="paragraf-badge">TRUE / FALSE / NOT GIVEN</span>
+          <span style="font-size:12px;color:#94a3b8;">${qi + 1}-savol</span>
+        </div>
+        <div style="font-size:14px;font-weight:700;color:#f8fafc;margin-bottom:10px;">«${akEsc(q.s)}»</div>
+        <div class="tfng-qator">
+          ${opts.map(opt => {
+            let cls = '';
+            if (javob) {
+              if (opt === q.togri) cls = 'tanlangan-true';
+              else if (opt === javob.tanlov && !javob.ok) cls = 'tanlangan-false';
+            }
+            return `<button class="tfng-btn ${cls}" ${javob ? 'disabled' : ''} onclick="matnIELTSJavob('${m.id}',${qi},'${opt}')">${opt}</button>`;
+          }).join('')}
+        </div>
+        ${javob ? `<div class="test-fikr ${javob.ok ? 'yaxshi' : 'yomon'}" style="margin-top:10px;">${javob.ok ? "✅ To'g'ri! +3 XP" : "❌ Noto'g'ri. To'g'ri javob: " + q.togri} — ${akEsc(q.izoh)}</div>` : ''}
+      </div>`;
+  }
+
+  // 2. MATCHING HEADINGS
+  if (q.tur === 'heading') {
+    return `
+      <div style="margin-bottom:14px;padding:16px;background:rgba(9,13,24,0.78);border:1px solid rgba(148,163,184,0.16);border-radius:12px;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+          <span class="paragraf-badge">MATCHING HEADINGS</span>
+          <span style="font-size:12px;color:#94a3b8;">${qi + 1}-savol</span>
+        </div>
+        <div style="font-size:14px;font-weight:700;color:#f8fafc;margin-bottom:8px;">${akEsc(q.s)}</div>
+        <div class="heading-box">
+          <div style="font-size:12px;font-weight:700;color:#38bdf8;margin-bottom:6px;">Sarlavhalar ro'yxati (List of Headings):</div>
+          ${q.headings.map(h => `<div style="font-size:12.5px;color:#cbd5e1;padding:2px 0;">${akEsc(h)}</div>`).join('')}
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px;">
+          ${(q.variantlar || []).map(cand => {
+            let cls = 'test-variant';
+            if (javob) {
+              if (cand === q.togri) cls += ' togri';
+              else if (cand === javob.tanlov && !javob.ok) cls += ' noto-gri';
+            }
+            return `<button class="${cls}" ${javob ? 'disabled' : ''} onclick="matnIELTSJavob('${m.id}',${qi},decodeURIComponent('${encodeURIComponent(cand)}'))">${akEsc(cand)}</button>`;
+          }).join('')}
+        </div>
+        ${javob ? `<div class="test-fikr ${javob.ok ? 'yaxshi' : 'yomon'}" style="margin-top:10px;">${javob.ok ? "✅ To'g'ri! +3 XP" : "❌ Noto'g'ri. To'g'ri javob: " + q.togri} — ${akEsc(q.izoh)}</div>` : ''}
+      </div>`;
+  }
+
+  // 3. MULTIPLE CHOICE QUESTIONS (MCQ) - Standart yoki Yangilangan
+  const tartib = matnTartibi(key);
+  const variantlar = q.chalg ? tartib.map(j => [q.togri, ...q.chalg][j]) : (q.variantlar || [q.togri]);
+  const togriIdx = q.chalg ? tartib.indexOf(0) : variantlar.indexOf(q.togri);
+
+  return `
+    <div style="margin-bottom:14px;padding:16px;background:rgba(9,13,24,0.78);border:1px solid rgba(148,163,184,0.16);border-radius:12px;">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+        <span class="paragraf-badge">MCQ</span>
+        <span style="font-size:12.5px;color:#94a3b8;">${qi + 1}-savol</span>
+      </div>
+      <div style="font-size:14px;font-weight:700;color:#f8fafc;margin-bottom:10px;">${akEsc(q.s)}</div>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        ${variantlar.map((v, oi) => {
+          let cls = 'test-variant';
+          if (javob) {
+            if (oi === togriIdx) cls += ' togri';
+            else if (oi === javob.oi && !javob.ok) cls += ' noto-gri';
+          }
+          return `<button class="${cls}" ${javob ? 'disabled' : ''} onclick="matnJavob('${m.id}',${qi},${oi})">${akEsc(v)}</button>`;
+        }).join('')}
+      </div>
+      ${javob ? `<div class="test-fikr ${javob.ok ? 'yaxshi' : 'yomon'}" style="margin-top:10px;">${javob.ok ? "✅ To'g'ri! +3 XP" : "❌ Noto'g'ri."} ${akEsc(q.izoh)}</div>` : ''}
+    </div>`;
+}
+
+function matnIELTSJavob(id, qi, tanlov){
+  const m = Object.values(MATNLAR_DB).flat().find(x => x.id === id);
+  if (!m) return;
+  const q = m.savollar[qi];
+  if (!q) return;
+
+  const key = id + '_' + qi;
+  PROGRESS.matnJavob = PROGRESS.matnJavob || {};
+  if (PROGRESS.matnJavob[key]) return;
+
+  const ok = String(tanlov).trim() === String(q.togri).trim();
+  PROGRESS.matnJavob[key] = { tanlov, ok };
+  progressSaqlash(PROGRESS);
+
+  if (ok) xpQoshish(3, 'matn');
+  kunlikQayd(0, 1, ok ? 1 : 0, 'matn');
+  matnlarKo_rsatish();
+}
+
 function matnTartibi(key){
   PROGRESS.matnVar = PROGRESS.matnVar || {};
   if(!PROGRESS.matnVar[key]){
@@ -6149,6 +8180,59 @@ function matnJavob(id,qi,oi){
   kunlikQayd(0,1,ok?1:0,'matn');
   matnlarKo_rsatish();
 }
+
+
+// IELTS format questions injected into B2 & C1 passages
+(function enrichPassagesWithIELTS(){
+  if (typeof MATNLAR_DB !== 'undefined' && MATNLAR_DB['B2']) {
+    MATNLAR_DB['B2'].forEach(p => {
+      if (p.id === 'b2-1' && !p.savollar.some(x => x.tur === 'tfng')) {
+        p.savollar.push({
+          tur: 'tfng',
+          s: "Working from home completely eliminates stress for all modern professionals.",
+          togri: "FALSE",
+          izoh: "Matnda masofaviy ishning afzalliklari bilan birga yolg'izlik va chegaralar yo'qolishi kabi stress manbalari ham keltirilgan."
+        });
+        p.savollar.push({
+          tur: 'heading',
+          s: "Which heading best summarizes the paragraph discussing isolation and mental burnout?",
+          headings: ["i. Economic savings on daily commute", "ii. The psychological challenge of isolation", "iii. Digital infrastructure requirements"],
+          variantlar: ["i. Economic savings on daily commute", "ii. The psychological challenge of isolation", "iii. Digital infrastructure requirements"],
+          togri: "ii. The psychological challenge of isolation",
+          izoh: "Paragrafda yolg'izlik va jamoaviy muloqot yetishmovchiligi tahlil qilingan."
+        });
+      }
+      if (p.id === 'b2-2' && !p.savollar.some(x => x.tur === 'tfng')) {
+        p.savollar.push({
+          tur: 'tfng',
+          s: "The shrinkage of the Aral Sea had zero effect on the regional climate.",
+          togri: "FALSE",
+          izoh: "Matnda Orol dengizining qurishi mintaqa iqlimini qurg'oqchil va keskin o'zgaruvchan qilgani ta'kidlangan."
+        });
+      }
+    });
+  }
+  if (typeof MATNLAR_DB !== 'undefined' && MATNLAR_DB['C1']) {
+    MATNLAR_DB['C1'].forEach(p => {
+      if (p.id === 'c1-1' && !p.savollar.some(x => x.tur === 'tfng')) {
+        p.savollar.push({
+          tur: 'tfng',
+          s: "Increasing technological efficiency always leads to a decrease in overall consumption.",
+          togri: "FALSE",
+          izoh: "Jevons paradoksi bo'yicha texnologik samaradorlik oshishi resurs iste'molini kamaytirmaydi, balki ko'paytiradi."
+        });
+        p.savollar.push({
+          tur: 'heading',
+          s: "Which heading encapsulates the core thesis of the Jevons paradox in paragraph A?",
+          headings: ["i. Why saving resources often accelerates usage", "ii. Government regulations on carbon emissions", "iii. The demise of traditional manufacturing"],
+          variantlar: ["i. Why saving resources often accelerates usage", "ii. Government regulations on carbon emissions", "iii. The demise of traditional manufacturing"],
+          togri: "i. Why saving resources often accelerates usage",
+          izoh: "A paragrafida samaradorlik oshishi bilan talab ko'payishi va iste'mol jadallashishi tushuntirilgan."
+        });
+      }
+    });
+  }
+})();
 
 /* YOZISH */
 function yozishKo_rsatish(){
