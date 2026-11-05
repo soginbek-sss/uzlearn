@@ -1714,6 +1714,111 @@ body {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
+
+/* Top Navbar Actions (Reyting & Taraqqiyot) */
+.nav-actions-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(13, 23, 48, 0.78);
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+.nav-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #cbd5e1;
+  font-family: 'Inter', sans-serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+.nav-top-btn:hover {
+  background: rgba(30, 41, 59, 0.9);
+  color: #ffffff;
+}
+.nav-top-btn.faol {
+  background: linear-gradient(135deg, #2563eb 0%, #dc2626 100%) !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  color: #ffffff !important;
+  box-shadow: 0 3px 12px rgba(220, 38, 38, 0.35);
+}
+.nav-btn-reyting {
+  color: #fbbf24;
+}
+.nav-btn-taraqqiyot {
+  color: #38bdf8;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    padding: 8px 10px !important;
+    gap: 6px !important;
+    flex-wrap: nowrap !important;
+  }
+  .nav-nomi {
+    font-size: 16px !important;
+  }
+  .nav-logo {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 15px !important;
+    border-radius: 9px !important;
+  }
+  .nav-xp {
+    display: none !important;
+  }
+  .nav-actions-group {
+    padding: 3px;
+    gap: 3px;
+  }
+  .nav-top-btn {
+    padding: 5px 8px;
+    font-size: 11px;
+    gap: 3px;
+  }
+  .google-btn-nav {
+    padding: 5px 9px !important;
+    font-size: 11px !important;
+    gap: 5px !important;
+  }
+  .google-btn-nav span {
+    max-width: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .yon-panel {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 3px !important;
+    padding: 6px 6px calc(6px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .yon-panel .modul-tugma {
+    width: 100% !important;
+    min-width: 0 !important;
+    padding: 6px 2px !important;
+    border-radius: 10px !important;
+  }
+  .yon-panel .modul-icon {
+    font-size: 18px !important;
+  }
+  .yon-panel .modul-nomi {
+    font-size: 10px !important;
+    letter-spacing: -0.02em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+}
 </style>
 </head>
 <body>
@@ -1722,10 +1827,13 @@ body {
     <div class="nav-logo">📚</div>
     <div><div class="nav-nomi">UzLearn</div><div class="nav-tagline">Ingliz Tili Akademiyasi</div></div>
   </div>
-  <div style="display:flex;align-items:center;gap:10px;">
+  <div class="nav-actions-group">
     <button class="xp-belgi nav-xp" id="xpNav" onclick="modulAlmashtir('reyting')" style="cursor:pointer;" title="XP va Reyting">⭐ 0 XP</button>
-    <button class="daraja-tugma" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-color:rgba(245,158,11,0.35);color:#fbbf24;" onclick="modulAlmashtir('reyting')" title="Reyting jadvali">
+    <button class="nav-top-btn nav-btn-reyting" id="top-btn-reyting" onclick="modulAlmashtir('reyting')" title="Jonli Reyting jadvali">
       <span>🏆</span> <b>Reyting</b>
+    </button>
+    <button class="nav-top-btn nav-btn-taraqqiyot" id="top-btn-taraqqiyot" onclick="modulAlmashtir('taraqqiyot')" title="Shaxsiy Taraqqiyot va Analitika">
+      <span>📊</span> <b>Taraqqiyot</b>
     </button>
   </div>
   <div class="akkaunt" id="akkaunt"></div>
@@ -1736,7 +1844,7 @@ body {
   <div class="yon-sarlavha">BO'LIMLAR</div>
   <button class="modul-tugma faol" id="g-kunlik" onclick="modulAlmashtir('kunlik')">
     <span class="modul-icon">📅</span>
-    <div><div class="modul-nomi">Bugungi Dars</div><div class="modul-tavsif">Grammatika + 40 so'z + O'yin</div></div>
+    <div><div class="modul-nomi">Kunlik Dars</div><div class="modul-tavsif">Grammatika + 40 so'z + O'yin</div></div>
   </button>
   <button class="modul-tugma" id="g-sozlik" onclick="modulAlmashtir('sozlik')">
     <span class="modul-icon">📖</span>
@@ -1749,16 +1857,13 @@ body {
   </button>
   <button class="modul-tugma" id="g-matnlar" onclick="modulAlmashtir('matnlar')">
     <span class="modul-icon">📰</span>
-    <div><div class="modul-nomi">O'qish & Tinglash</div><div class="modul-tavsif">Reading, Listening & Writing</div></div>
+    <div><div class="modul-nomi">Matn & Audio</div><div class="modul-tavsif">Reading, Listening & IELTS</div></div>
   </button>
   <button class="modul-tugma" id="g-oyinlar" onclick="modulAlmashtir('oyinlar')">
     <span class="modul-icon">🎮</span>
     <div><div class="modul-nomi">O'yin</div><div class="modul-tavsif">O'yinlar va testlar</div></div>
   </button>
-  <button class="modul-tugma" id="g-taraqqiyot" onclick="modulAlmashtir('taraqqiyot')">
-    <span class="modul-icon">📊</span>
-    <div><div class="modul-nomi">Taraqqiyot</div><div class="modul-tavsif" id="streakYonPanel">Kunlik natija</div></div>
-  </button>
+
 </aside>
 <main class="kontent"><div id="ichki-tab-joy"></div><div id="kontent-joy"></div></main>
 </div>
@@ -2527,13 +2632,21 @@ const BOLIMLAR={
   grammatika:{tugma:'g-grammatika',tab:null},
   matnlar:{tugma:'g-matnlar',tab:[['matnlar',"📖 Reading"],['listening',"🎧 Listening"],['ielts',"🎓 IELTS Hub"],['yozish',"✍️ Writing"]]},
   oyinlar:{tugma:'g-oyinlar',tab:[['oyinlar',"🎮 Mini-o'yinlar (6 ta)"],['test','🎯 Test va Imtihon']]},
-  taraqqiyot:{tugma:'g-taraqqiyot',tab:[['taraqqiyot',"📊 Shaxsiy O'sish"],['reyting',"🏆 Reyting & Ligalar"]]}
+  taraqqiyot:{tugma:null,tab:[['taraqqiyot',"📊 Shaxsiy O'sish"],['reyting',"🏆 Reyting & Ligalar"]]}
 };
 const MOD_BOLIM={kunlik:'kunlik',alifbo:'grammatika',morfologiya:'sozlik',matnlar:'matnlar',listening:'matnlar',ielts:'matnlar',yozish:'matnlar',sozlik:'sozlik',kartochkalar:'sozlik',sinonim:'sozlik',omonim:'sozlik',antonim:'sozlik',grammatika:'grammatika',oyinlar:'oyinlar',test:'oyinlar',taraqqiyot:'taraqqiyot',reyting:'taraqqiyot'};
 function bolimBelgila(mod){
+  // Yuqori o'ng burchakdagi Reyting va Taraqqiyot tugmalarining faolligini boshqarish
+  const btnReyting = document.getElementById('top-btn-reyting');
+  const btnTaraqqiyot = document.getElementById('top-btn-taraqqiyot');
+  if (btnReyting) btnReyting.classList.toggle('faol', mod === 'reyting');
+  if (btnTaraqqiyot) btnTaraqqiyot.classList.toggle('faol', mod === 'taraqqiyot');
+
   const b=MOD_BOLIM[mod]; if(!b) return;
   document.querySelectorAll('.modul-tugma').forEach(x=>x.classList.remove('faol'));
-  const t=document.getElementById(BOLIMLAR[b].tugma); if(t) t.classList.add('faol');
+  if (BOLIMLAR[b].tugma) {
+    const t=document.getElementById(BOLIMLAR[b].tugma); if(t) t.classList.add('faol');
+  }
   const joy=document.getElementById('ichki-tab-joy'); if(!joy) return;
   const tb=BOLIMLAR[b].tab;
   const aktivTab=(mod==='omonim'||mod==='antonim')?'sinonim':mod;
@@ -8380,7 +8493,7 @@ function onbKorsatish(){
     if(d==='NOLDAN'){ alifboProgress().rejim='noldan'; progressSaqlash(PROGRESS); joriySozlikDaraja='A1'; joriyMatnDaraja='A1'; try{ localStorage.setItem(ONB_KALIT,'NOLDAN'); }catch(e){} q.remove(); sozlikKo_rsatish(); modulAlmashtir('alifbo'); return; }
     if(d==='TEST'){ alifboProgress().rejim='bilaman'; progressSaqlash(PROGRESS); try{ localStorage.setItem(ONB_KALIT,'TEST'); }catch(e){} q.remove(); sozlikKo_rsatish(); modulAlmashtir('alifbo'); alifboTestBoshla('joylashtirish'); return; }
     alifboProgress().rejim='bilaman'; progressSaqlash(PROGRESS);
-    joriySozlikDaraja=d; joriyMatnDaraja=d;
+    joriySozlikDaraja=d; joriyMatnDaraja=d; PROGRESS.kunlikReja={daraja:d,kun:1,qadamlar:{}}; progressSaqlash(PROGRESS);
     try{ localStorage.setItem(ONB_KALIT,d); }catch(e){}
     q.remove();
     sozlikKo_rsatish();
@@ -8393,7 +8506,7 @@ if(AKKAUNT) onbKorsatish(); else profilFormaKo_rsatish();
 
 /* Oflayn ishlash (faqat https da, fayl sifatida ochilganda o'tkazib yuboriladi) */
 if('serviceWorker' in navigator && location.protocol.indexOf('http')===0){ navigator.serviceWorker.register('sw.js').catch(function(){}); }
-document.getElementById('streakYonPanel').textContent = `🔥 ${PROGRESS.streak.joriy} kunlik seriya`;
+const _stEl = document.getElementById('streakYonPanel'); if(_stEl) _stEl.textContent = `🔥 ${PROGRESS.streak.joriy} kunlik seriya`;
 xpKorsatkichniYangilash();
 AKKAUNT=akkauntOqish(); akkauntKo_rsatish();
 </script>
