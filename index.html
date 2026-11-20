@@ -1860,6 +1860,48 @@ body.kunduzgi-rejim .dash-step-circle { background: #ffffff; }
   .dash-step-circle { width: 30px; height: 30px; font-size: 12px; }
   .dash-step-lbl { font-size: 10px; }
 }
+
+/* Flashcard Front (English) / Back (Uzbek) Strict 3D Isolation */
+.kartochka-yuz {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  padding: 20px;
+  text-align: center;
+}
+.old-yuz {
+  background: #131A2A;
+  transform: rotateY(0deg);
+  z-index: 2;
+}
+.orqa-yuz {
+  background: #1a2337;
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+.kartochka-ust.aylangan .old-yuz { pointer-events: none; opacity: 0; }
+.kartochka-ust:not(.aylangan) .orqa-yuz { pointer-events: none; opacity: 0; }
+.kartochka-ust.aylangan .orqa-yuz { opacity: 1; z-index: 3; }
+.fc-lang-pill {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+.fc-lang-pill.en { background: rgba(37, 99, 235, 0.18); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.35); }
+.fc-lang-pill.uz { background: rgba(16, 185, 129, 0.16); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.35); }
+.param-speed-group { display: flex; gap: 6px; }
+.param-speed-btn {
+  min-width: 48px;
+  min-height: 40px;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
 </style>
 </head>
 <body>
@@ -1923,10 +1965,10 @@ body.kunduzgi-rejim .dash-step-circle { background: #ffffff; }
         <span>🗣️</span>
         <span>Diktor tezligi</span>
       </div>
-      <div class="param-speed-group">
-        <button class="param-speed-btn" id="spd-sekin" onclick="ttsTezlikOzgartir(0.72)">0.7x</button>
-        <button class="param-speed-btn faol" id="spd-norm" onclick="ttsTezlikOzgartir(0.88)">1.0x</button>
-        <button class="param-speed-btn" id="spd-tez" onclick="ttsTezlikOzgartir(1.05)">1.2x</button>
+      <div class="param-speed-group" onclick="event.stopPropagation()">
+        <button type="button" class="param-speed-btn" id="spd-sekin" onclick="ttsTezlikOzgartir(0.6)">0.6x</button>
+        <button type="button" class="param-speed-btn faol" id="spd-norm" onclick="ttsTezlikOzgartir(1.0)">1.0x</button>
+        <button type="button" class="param-speed-btn" id="spd-tez" onclick="ttsTezlikOzgartir(1.2)">1.2x</button>
       </div>
     </div>
 
@@ -5665,13 +5707,16 @@ function kartochkalarKo_rsatish(){
       <div class="kartochka-ust ${kartochaAylangan?'aylangan':''}" id="kartochaEl" onclick="kartochaAylantir()">
         <div class="kartochka-ichki">
           <div class="kartochka-yuz old-yuz">
-            <div class="kartochka-soz">🇬🇧 ${akEsc(en)}</div>
-            <div style="font-size:13px;color:#38bdf8;margin-top:6px;">🔗 ${akEsc(bir.col)}</div>
-            <div class="kartochka-maslahat">Bosing — tarjimani ko'ring</div>
+            <span class="fc-lang-pill en">🇬🇧 English</span>
+            <div class="kartochka-soz">${akEsc(en)}</div>
+            <div style="font-size:13.5px;color:#93c5fd;margin-top:6px;">🔗 ${akEsc(bir.col)}</div>
+            <div class="kartochka-maslahat">Kartochkani bosing — O'zbekcha ma'nosini ko'ring</div>
           </div>
           <div class="kartochka-yuz orqa-yuz">
-            <div class="kartochka-tarjima">🇺🇿 ${akEsc(uz)}</div>
-            <div style="font-size:12.5px;color:#cbd5e1;margin-top:8px;">💬 "${akEsc(bir.gap)}"</div>
+            <span class="fc-lang-pill uz">🇺🇿 O'zbekcha</span>
+            <div class="kartochka-tarjima">${akEsc(uz)}</div>
+            <div style="font-size:13px;color:#cbd5e1;margin-top:8px;">💬 "${akEsc(bir.gap)}"</div>
+            <div class="kartochka-maslahat">Yana bosing — Inglizcha tomoniga qaytish</div>
           </div>
         </div>
       </div>
@@ -5759,10 +5804,64 @@ function kartochaBilmadim(){
 let _ovozlar=[], _aktivUtter=null, _ovozXabarBor=false;
 function ovozYukla(){ try{ if(window.speechSynthesis) _ovozlar=window.speechSynthesis.getVoices()||[]; }catch(e){} }
 if('speechSynthesis' in window){ ovozYukla(); try{ window.speechSynthesis.onvoiceschanged=ovozYukla; }catch(e){} }
-function inglizOvoz(){
+function inglizOvoz(jins){
+  if(!_ovozlar.length) ovozYukla();
   const en=_ovozlar.filter(v=>/^en/i.test(v.lang));
-  return en.find(v=>/en-US/i.test(v.lang)&&/Google|Samantha|Daniel|Karen|Microsoft|Zira|David/i.test(v.name))
-      || en.find(v=>/en-US/i.test(v.lang)) || en[0] || null;
+  if(!en.length) return null;
+  const erkakRe=/Google UK English Male|Microsoft Ryan|Microsoft Guy|Microsoft Christopher|Microsoft George|Microsoft David|Microsoft Mark|Daniel|Alex|Arthur|Oliver|Aaron|Fred|Liam|Thomas|James|Male/i;
+  const ayolRe=/Google UK English Female|Microsoft Sonia|Microsoft Jenny|Microsoft Aria|Microsoft Libby|Microsoft Zira|Samantha|Victoria|Karen|Moira|Tessa|Hazel|Susan|Female/i;
+  if(jins==='ayol'){
+    return en.find(v=>ayolRe.test(v.name))
+        || en.find(v=>/Google US English/i.test(v.name))
+        || en.find(v=>!erkakRe.test(v.name))
+        || en[0];
+  }
+  // Default: confident Male English voice
+  return en.find(v=>erkakRe.test(v.name))
+      || en.find(v=>/^en-(GB|US)/i.test(v.lang) && !ayolRe.test(v.name))
+      || en.find(v=>!ayolRe.test(v.name))
+      || en[0];
+}
+function _ayolIsmmi(nom){
+  return /sarah|emma|anna|lisa|maya|elena|claire|sophie|maria|olivia|emily|kate|jane|ms\.|mrs\.|woman|female|girl|receptionist|librarian/i.test(String(nom||''));
+}
+function matnOqi(matn, tezlik){
+  const raw = String(matn || '').trim();
+  if(!raw) return;
+  const qatorlar = raw.split(/\n+/).map(x=>x.trim()).filter(Boolean);
+  const dialogQatorlar = qatorlar.filter(x=>/^[A-Z][A-Za-z .]{1,22}:\s+/.test(x));
+  if(dialogQatorlar.length >= 2 && ('speechSynthesis' in window)){
+    const s = window.speechSynthesis;
+    try{ s.cancel(); }catch(e){}
+    const rate = typeof tezlik === 'number' ? tezlik : (window._ttsDefaultTezlik || 1.0);
+    const spkMap = {};
+    let spkCount = 0;
+    let idx = 0;
+    function oqiKeyingi(){
+      if(idx >= qatorlar.length) return;
+      const line = qatorlar[idx++];
+      const m = line.match(/^([A-Z][A-Za-z .]{1,22}):\s+(.*)$/);
+      const spkName = m ? m[1] : '';
+      const spoken = m ? m[2] : line;
+      if(spkName && !(spkName in spkMap)){
+        spkMap[spkName] = _ayolIsmmi(spkName) ? 'ayol' : (spkCount % 2 === 0 ? 'erkak' : 'ayol');
+        spkCount++;
+      }
+      const jins = spkName ? spkMap[spkName] : 'erkak';
+      const u = new SpeechSynthesisUtterance(spoken);
+      const v = inglizOvoz(jins);
+      if(v){ try{ u.voice = v; }catch(e){} u.lang = v.lang || 'en-US'; } else { u.lang = 'en-US'; }
+      u.rate = rate;
+      u.pitch = jins === 'ayol' ? 1.08 : 0.92;
+      u.volume = 1;
+      u.onend = () => setTimeout(oqiKeyingi, 260);
+      _aktivUtter = u;
+      try{ s.speak(u); }catch(e){}
+    }
+    setTimeout(oqiKeyingi, 60);
+  } else {
+    gapirtir(raw, tezlik, 'erkak');
+  }
 }
 function ovozXabar(matn){
   if(_ovozXabarBor) return; _ovozXabarBor=true;
@@ -5992,18 +6091,19 @@ function ovozYordamKo(qolda){
 }
 
 /* ================= O'QISH OVOZI ================= */
-function gapirtir(soz, tezlik){
+function gapirtir(soz, tezlik, jins){
   try{
     if(!('speechSynthesis' in window)){ ovozXabar("Bu brauzer ovozni qo'llamaydi. Chrome brauzerida oching."); return; }
     const s=window.speechSynthesis;
     if(!_ovozlar.length) ovozYukla();
     const tozaMatn = String(soz).replace(/🇬🇧|🇺🇿/g, '').trim();
     const u=new SpeechSynthesisUtterance(tozaMatn);
+    const tanlanganJins = jins === 'ayol' ? 'ayol' : 'erkak';
     u.lang='en-US';
-    u.rate = typeof tezlik === 'number' ? tezlik : (window._ttsDefaultTezlik || 0.88);
-    u.pitch=1;
+    u.rate = typeof tezlik === 'number' ? tezlik : (window._ttsDefaultTezlik || 1.0);
+    u.pitch = tanlanganJins === 'ayol' ? 1.06 : 0.93;
     u.volume=1;
-    const v=inglizOvoz();
+    const v=inglizOvoz(tanlanganJins);
     if(v){ try{ u.voice=v; }catch(e){} u.lang=v.lang||'en-US'; }
     _aktivUtter=u;
     if(s.paused) s.resume();
@@ -8874,11 +8974,11 @@ function matnKartaHTML(m,i){
       <div class="reading-audio-bar">
         <span style="font-size:12.5px;color:var(--kulrang);font-weight:600;">📄 ${sana} so'z · ${m.savollar.length} ta savol</span>
         <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
-          <button class="daraja-tugma" onclick="gapirtir(MATNLAR_DB[joriyMatnDaraja][${i}].matn)">▶️ Tinglash</button>
-          <button class="daraja-tugma" onclick="try{window.speechSynthesis&&window.speechSynthesis.cancel();}catch(e){}gapirtir(MATNLAR_DB[joriyMatnDaraja][${i}].matn)">🔄 Qaytadan</button>
-          <button class="list-speed-pill ${Math.abs((window._ttsTezlik||0.88)-0.72)<0.05?'faol':''}" onclick="ttsTezlikOzgartir(0.72);gapirtir(MATNLAR_DB[joriyMatnDaraja][${i}].matn,0.72)">0.7x</button>
-          <button class="list-speed-pill ${Math.abs((window._ttsTezlik||0.88)-0.88)<0.05?'faol':''}" onclick="ttsTezlikOzgartir(0.88);gapirtir(MATNLAR_DB[joriyMatnDaraja][${i}].matn,0.88)">1.0x</button>
-          <button class="list-speed-pill ${Math.abs((window._ttsTezlik||0.88)-1.05)<0.05?'faol':''}" onclick="ttsTezlikOzgartir(1.05);gapirtir(MATNLAR_DB[joriyMatnDaraja][${i}].matn,1.05)">1.2x</button>
+          <button class="daraja-tugma" onclick="matnOqi(MATNLAR_DB[joriyMatnDaraja][${i}].matn)">▶️ Tinglash</button>
+          <button class="daraja-tugma" onclick="try{window.speechSynthesis&&window.speechSynthesis.cancel();}catch(e){}matnOqi(MATNLAR_DB[joriyMatnDaraja][${i}].matn)">🔄 Qaytadan</button>
+          <button class="list-speed-pill ${(window._ttsDefaultTezlik||1.0)<=0.75?'faol':''}" onclick="ttsTezlikOzgartir(0.6);matnOqi(MATNLAR_DB[joriyMatnDaraja][${i}].matn,0.6)">0.6x</button>
+          <button class="list-speed-pill ${(window._ttsDefaultTezlik||1.0)>0.75&&(window._ttsDefaultTezlik||1.0)<1.1?'faol':''}" onclick="ttsTezlikOzgartir(1.0);matnOqi(MATNLAR_DB[joriyMatnDaraja][${i}].matn,1.0)">1.0x</button>
+          <button class="list-speed-pill ${(window._ttsDefaultTezlik||1.0)>=1.1?'faol':''}" onclick="ttsTezlikOzgartir(1.2);matnOqi(MATNLAR_DB[joriyMatnDaraja][${i}].matn,1.2)">1.2x</button>
           <button class="daraja-tugma" onclick="tezGapirOch(MATNLAR_DB[joriyMatnDaraja][${i}].matn.split('.')[0]+'.', MATNLAR_DB[joriyMatnDaraja][${i}].sarlavha)">🎙️ Ovozda o'qish</button>
         </div>
       </div>
@@ -9158,9 +9258,9 @@ function listeningKo_rsatish(){
         <div style="display:flex;align-items:center;gap:10px;">
           <span style="font-size:12px;color:#94a3b8;font-weight:600;">Tezlik:</span>
           <div class="list-speed-pills">
-            <button class="list-speed-pill ${_listSpeed <= 0.75 ? 'faol' : ''}" onclick="listeningTezlik(0.7)">0.7x</button>
-            <button class="list-speed-pill ${_listSpeed > 0.75 && _listSpeed < 1.15 ? 'faol' : ''}" onclick="listeningTezlik(1.0)">1.0x</button>
-            <button class="list-speed-pill ${_listSpeed >= 1.15 ? 'faol' : ''}" onclick="listeningTezlik(1.2)">1.2x</button>
+            <button class="list-speed-pill ${_listSpeed <= 0.75 ? 'faol' : ''}" onclick="listeningTezlik(0.6)">0.6x</button>
+            <button class="list-speed-pill ${_listSpeed > 0.75 && _listSpeed < 1.1 ? 'faol' : ''}" onclick="listeningTezlik(1.0)">1.0x</button>
+            <button class="list-speed-pill ${_listSpeed >= 1.1 ? 'faol' : ''}" onclick="listeningTezlik(1.2)">1.2x</button>
           </div>
         </div>
 
@@ -9258,12 +9358,13 @@ function listeningAudioBoshla(){
     }
     const line = test.audioLines[_listLineIdx];
     const u = new SpeechSynthesisUtterance(line.txt);
+    const jins = line.spk === 2 ? 'ayol' : 'erkak';
     u.lang = 'en-US';
-    u.rate = _listSpeed * 0.88;
-    // Differentiate Speaker 1 and Speaker 2 with pitch
-    u.pitch = line.spk === 1 ? 1.05 : 0.92;
-    const v = inglizOvoz();
-    if (v) u.voice = v;
+    u.rate = _listSpeed;
+    // Distinct Male (Speaker 1) and Female (Speaker 2) dialogue voices
+    u.pitch = jins === 'ayol' ? 1.08 : 0.92;
+    const v = inglizOvoz(jins);
+    if (v) { try { u.voice = v; } catch(e){} u.lang = v.lang || 'en-US'; }
 
     u.onend = function(){
       _listLineIdx++;
@@ -9672,13 +9773,13 @@ function parametrlarUIYangila(){
   if (sSw && sSw.classList) sSw.classList.toggle('faol', !!_sfxYoqilgan);
 
   // 3. TTS Speed buttons
-  const spd = window._ttsDefaultTezlik || 0.88;
+  const spd = window._ttsDefaultTezlik || 1.0;
   const bSekin = document.getElementById('spd-sekin');
   const bNorm = document.getElementById('spd-norm');
   const bTez = document.getElementById('spd-tez');
-  if (bSekin && bSekin.classList) bSekin.classList.toggle('faol', spd < 0.8);
-  if (bNorm && bNorm.classList) bNorm.classList.toggle('faol', spd >= 0.8 && spd < 0.98);
-  if (bTez && bTez.classList) bTez.classList.toggle('faol', spd >= 0.98);
+  if (bSekin && bSekin.classList) bSekin.classList.toggle('faol', spd <= 0.75);
+  if (bNorm && bNorm.classList) bNorm.classList.toggle('faol', spd > 0.75 && spd < 1.1);
+  if (bTez && bTez.classList) bTez.classList.toggle('faol', spd >= 1.1);
 
   // 4. Kunlik Daraja badge
   const dVal = document.getElementById('param-daraja-val');
@@ -9704,10 +9805,13 @@ function mavzuRejimToggle(){
 }
 
 function ttsTezlikOzgartir(val){
-  window._ttsDefaultTezlik = val;
-  try { localStorage.setItem('uzlearn_tts_spd', String(val)); } catch(e){}
+  const v = Number(val) || 1.0;
+  window._ttsDefaultTezlik = v;
+  window._ttsTezlik = v;
+  if (typeof _listSpeed !== 'undefined') _listSpeed = v;
+  try { localStorage.setItem('uzlearn_tts_spd', String(v)); } catch(e){}
   parametrlarUIYangila();
-  gapirtir("Speed updated", val);
+  gapirtir("Speed set to " + v, v, 'erkak');
 }
 
 function ovozEfektToggle(){
